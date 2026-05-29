@@ -130,7 +130,15 @@ export default function CV({ language }: Props) {
           <h2 className="section-title">Curriculum Vitae</h2>
         </div>
 
-        <div className="mt-8 space-y-6">
+        <div className="mt-8 hidden overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-soft lg:block">
+          <iframe
+            title="Curriculum Vitae PDF"
+            src={cvUrl}
+            className="h-[78vh] min-h-[44rem] w-full"
+          />
+        </div>
+
+        <div className="mt-8 space-y-6 lg:hidden">
           {status === "loading" ? (
             <div className="rounded-[28px] border border-slate-200 bg-white px-6 py-8 text-sm font-medium text-slate-600 shadow-soft">
               {labels.loading}
