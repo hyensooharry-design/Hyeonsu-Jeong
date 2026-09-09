@@ -503,6 +503,18 @@ export const experiences = [
     },
   },
   {
+    organization: "Purdue Academy of Global Engineering",
+    role: {
+      en: "Research Program Participant",
+      ko: "글로벌 엔지니어링 연구 프로그램 참가",
+    },
+    period: "2026.06 - 2026.07",
+    description: {
+      en: "Participated in a research program at the Edwardson School of Industrial Engineering, Purdue University, Indiana, USA.",
+      ko: "미국 인디애나 Purdue University Edwardson School of Industrial Engineering에서 글로벌 엔지니어링 연구 프로그램에 참여했습니다.",
+    },
+  },
+  {
     organization: "Workrithm",
     role: {
       en: "Founder / CEO",
