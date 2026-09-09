@@ -1,4 +1,11 @@
-import { Briefcase, Database, Lightbulb, Shield, Users } from "lucide-react";
+import {
+  Briefcase,
+  CircleParking,
+  Database,
+  Lightbulb,
+  Shield,
+  Users,
+} from "lucide-react";
 import type { Language } from "../data/portfolioData";
 import { experiences, sectionLabels } from "../data/portfolioData";
 
@@ -103,6 +110,8 @@ export default function Experience({ language }: Props) {
         return <Database size={20} />;
       case "APLUSES":
         return <Users size={20} />;
+      case "Purdue Academy of Global Engineering":
+        return <CircleParking size={20} />;
       default:
         return <Briefcase size={20} />;
     }
