@@ -1,7 +1,7 @@
 import {
   Briefcase,
-  CircleParking,
   Database,
+  Globe,
   Lightbulb,
   Shield,
   Users,
@@ -111,7 +111,7 @@ export default function Experience({ language }: Props) {
       case "APLUSES":
         return <Users size={20} />;
       case "Purdue Academy of Global Engineering: Research Program":
-        return <CircleParking size={20} />;
+        return <Globe size={20} />;
       default:
         return <Briefcase size={20} />;
     }
