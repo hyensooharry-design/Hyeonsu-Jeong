@@ -21,7 +21,7 @@ const groupedCategories = [
       en: "Research Publications",
       ko: "Research Publications",
     },
-    categories: ["Manuscript"],
+    categories: ["SCI", "KCI"],
   },
   {
     key: "ip",

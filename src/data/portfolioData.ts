@@ -198,7 +198,7 @@ export const projects = [
 
 export const publications = [
   {
-    category: { en: "Manuscript", ko: "논문" },
+    category: { en: "KCI", ko: "KCI" },
     title: "Knowledge Graph-Based Legal Chain Reasoning for Industrial Safety Decision Support",
     meta: {
       en: "First Author · Accepted · Journal of the Korean Institute of Industrial Engineers · Q1, KCI, Excellent Accredited",
@@ -206,7 +206,7 @@ export const publications = [
     },
   },
   {
-    category: { en: "Manuscript", ko: "논문" },
+    category: { en: "SCI", ko: "SCI" },
     title: "Automated optimization of visual sensor deployment for construction sites",
     meta: {
       en: "First Author · Automation in Construction, 192, 107264 · DOI: 10.1016/j.autcon.2026.107264 · Q1, SCIE, 2025 IF 12.6",
