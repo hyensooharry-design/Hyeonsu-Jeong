@@ -110,7 +110,7 @@ export default function Experience({ language }: Props) {
         return <Database size={20} />;
       case "APLUSES":
         return <Users size={20} />;
-      case "Purdue Academy of Global Engineering":
+      case "Purdue Academy of Global Engineering: Research Program":
         return <CircleParking size={20} />;
       default:
         return <Briefcase size={20} />;

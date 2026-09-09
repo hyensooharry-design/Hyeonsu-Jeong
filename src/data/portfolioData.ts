@@ -503,7 +503,7 @@ export const experiences = [
     },
   },
   {
-    organization: "Purdue Academy of Global Engineering",
+    organization: "Purdue Academy of Global Engineering: Research Program",
     role: {
       en: "Research Program Participant",
       ko: "글로벌 엔지니어링 연구 프로그램 참가",
