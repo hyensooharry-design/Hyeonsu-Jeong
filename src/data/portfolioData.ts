@@ -199,10 +199,26 @@ export const projects = [
 export const publications = [
   {
     category: { en: "Manuscript", ko: "논문" },
-    title: "Optimization of CCTV Location in Construction Sites for Efficient Visual Data Acquisition",
+    title: "Knowledge Graph-Based Legal Chain Reasoning for Industrial Safety Decision Support",
     meta: {
-      en: "First Author · Under Review · Automation in Construction · SCI Q1 · IF 11.5",
-      ko: "제1저자 · Under Review · Automation in Construction · SCI Q1 · IF 11.5",
+      en: "First Author · Accepted · Journal of the Korean Institute of Industrial Engineers · Q1, KCI, Excellent Accredited",
+      ko: "제1저자 · Accepted · Journal of the Korean Institute of Industrial Engineers · Q1, KCI, 우수등재",
+    },
+  },
+  {
+    category: { en: "Manuscript", ko: "논문" },
+    title: "Automated optimization of visual sensor deployment for construction sites",
+    meta: {
+      en: "First Author · Automation in Construction, 192, 107264 · DOI: 10.1016/j.autcon.2026.107264 · Q1, SCIE, 2025 IF 12.6",
+      ko: "제1저자 · Automation in Construction, 192, 107264 · DOI: 10.1016/j.autcon.2026.107264 · Q1, SCIE, 2025 IF 12.6",
+    },
+  },
+  {
+    category: { en: "Patent", ko: "특허" },
+    title: "Digital Map Resolution Optimization Technology Based on Spatial Importance in Construction Sites",
+    meta: {
+      en: "Patent Under Review · Korea · Co-inventor",
+      ko: "특허 심사 중 · 대한민국 · 공동발명자",
     },
   },
   {
@@ -474,6 +490,18 @@ export const legacyExperiences = [
 ];
 
 export const experiences = [
+  {
+    organization: "Transportation & Logistics Optimization Lab",
+    role: {
+      en: "Research Intern",
+      ko: "연구 인턴",
+    },
+    period: "2026.08 - Present",
+    description: {
+      en: "Participating in transportation and logistics optimization research at Yonsei University.",
+      ko: "연세대학교 Transportation & Logistics Optimization Lab에서 교통 및 물류 최적화 연구에 참여하고 있습니다.",
+    },
+  },
   {
     organization: "Workrithm",
     role: {
