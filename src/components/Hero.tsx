@@ -51,13 +51,21 @@ export default function Hero({ language }: Props) {
           </h1>
 
           <p
-            className={`stable-heading mt-6 min-h-[7rem] max-w-[18ch] font-medium leading-snug text-slate-800 sm:min-h-[8.5rem] ${
+            className={`stable-heading mt-6 min-h-[7rem] font-medium leading-snug text-slate-800 sm:min-h-[8.5rem] ${
               language === "en"
-                ? "text-[1.4rem] sm:text-[1.7rem]"
-                : "text-2xl sm:text-3xl"
+                ? "max-w-none text-[1.35rem] sm:text-[1.6rem]"
+                : "max-w-[18ch] text-2xl sm:text-3xl"
             }`}
           >
-            {t.title}
+            {language === "en" ? (
+              <>
+                Solving complex decision-making problems
+                <br />
+                through optimization and data-driven methods.
+              </>
+            ) : (
+              t.title
+            )}
           </p>
 
           <p className="stable-copy mt-6 min-h-[6rem] max-w-3xl text-base leading-8 text-slate-600 sm:min-h-[7rem] sm:text-lg">
