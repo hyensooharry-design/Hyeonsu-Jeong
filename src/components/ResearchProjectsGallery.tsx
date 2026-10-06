@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import type { Language } from "../data/portfolioData";
 import {
   researchProjectGroups,
@@ -10,11 +10,17 @@ import ProjectCardImageOnly from "./ProjectCardImageOnly";
 
 type Props = {
   language: Language;
+  selectedProjectId: string | null;
+  onSelectProject: (projectId: string) => void;
+  onBack: () => void;
 };
 
-export default function ResearchProjectsGallery({ language }: Props) {
-  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
-
+export default function ResearchProjectsGallery({
+  language,
+  selectedProjectId,
+  onSelectProject,
+  onBack,
+}: Props) {
   const flatProjectMap = useMemo(() => {
     const map = new Map<
       string,
@@ -46,8 +52,8 @@ export default function ResearchProjectsGallery({ language }: Props) {
           project={project}
           previousProject={previousProject}
           nextProject={nextProject}
-          onBack={() => setSelectedProjectId(null)}
-          onNavigate={setSelectedProjectId}
+          onBack={onBack}
+          onNavigate={onSelectProject}
         />
       );
     }
@@ -73,7 +79,7 @@ export default function ResearchProjectsGallery({ language }: Props) {
                     key={project.id}
                     language={language}
                     project={project}
-                    onClick={() => setSelectedProjectId(project.id)}
+                    onClick={() => onSelectProject(project.id)}
                   />
                 ))}
               </div>
