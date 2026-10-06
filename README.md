@@ -1,73 +1,169 @@
-# React + TypeScript + Vite
+# Hyeonsu Jeong — Research Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal academic and research portfolio of **Hyeonsu Jeong**, focused on optimization, logistics, routing, resource allocation, and data-driven decision-making.
 
-Currently, two official plugins are available:
+This repository contains the source code for my portfolio website and presents selected research publications, projects, intellectual property, awards, and research experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Research Focus
 
-## React Compiler
+My current research interests include:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Combinatorial Optimization
+- Transportation & Logistics Optimization
+- Routing
+- Resource Allocation
+- Decision-Making
+- Learning-Based Optimization
 
-## Expanding the ESLint configuration
+My previous work has applied optimization and data-driven methods to construction and industrial environments, including visual sensor deployment, digital-twin data acquisition, industrial safety decision support, and practical AI systems.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Featured Research & Projects
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Automated Optimization of Visual Sensor Deployment for Construction Sites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Published in **Automation in Construction, 192 (2026), 107264**.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+The study formulates CCTV placement and viewing-direction selection as a coverage optimization problem and develops both precision-oriented and runtime-oriented optimization models.
+
+- Journal: *Automation in Construction*
+- DOI: **10.1016/j.autcon.2026.107264**
+- Repository: [Automated-optimization-of-visual-sensor-deployment-for-construction-sites](https://github.com/hyensooharry-design/Automated-optimization-of-visual-sensor-deployment-for-construction-sites)
+
+### Knowledge Graph-Based Legal Chain Reasoning for Industrial Safety Decision Support
+
+A Legal Graph-RAG framework for traceable industrial-safety decision support using:
+
+- Document Graph
+- Annex Graph
+- Reasoning Graph
+- Provenance Layer
+- Evidence Pack
+- Legal Chain
+
+The manuscript has been accepted for publication.
+
+- Repository: [industrial-safety-law-graph-rag-system](https://github.com/hyensooharry-design/industrial-safety-law-graph-rag-system)
+
+### Face Recognition Attendance System
+
+An implemented face-recognition attendance system using:
+
+- FastAPI
+- Supabase
+- OpenCV
+- ArcFace ONNX
+- Streamlit
+- GitHub Actions CI
+
+- Repository: [face_attendance_api](https://github.com/hyensooharry-design/face_attendance_api)
+
+## Portfolio Contents
+
+The website includes:
+
+- **Home** — research profile and current interests
+- **Education** — academic background
+- **CV** — embedded latest curriculum vitae
+- **Research** — detailed research and project pages
+- **Publications** — journal papers, intellectual property, and presentations
+- **Awards** — selected competition and academic awards
+- **Experience** — research, leadership, and development experience
+- **Korean / English interface** — bilingual portfolio content
+
+## Tech Stack
+
+| Area | Technology |
+|---|---|
+| Frontend | React 19 |
+| Language | TypeScript |
+| Build Tool | Vite |
+| Styling | Tailwind CSS |
+| Icons | Lucide React |
+| PDF Rendering | PDF.js |
+| CI | GitHub Actions |
+
+## Project Structure
+
+```text
+.
+├── public/
+│   ├── images/
+│   └── resume/
+├── src/
+│   ├── components/
+│   ├── data/
+│   ├── styles/
+│   ├── App.tsx
+│   └── main.tsx
+├── .github/
+│   └── workflows/
+├── package.json
+└── vite.config.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Local Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 1. Clone the repository
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/hyensooharry-design/Hyeonsu-Jeong.git
+cd Hyeonsu-Jeong
 ```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the development server
+
+```bash
+npm run dev
+```
+
+### 4. Build for production
+
+```bash
+npm run build
+```
+
+### 5. Preview the production build
+
+```bash
+npm run preview
+```
+
+## Navigation Behavior
+
+The portfolio uses browser history-aware in-site navigation.
+
+- Re-selecting the active navigation item refreshes the visible section.
+- Browser Back/Forward navigation works between portfolio sections and research detail pages.
+- Clicking **Hyeonsu Jeong** in the top-left returns to the Home view.
+
+## CI
+
+Every push to `main` and every pull request runs a GitHub Actions workflow that:
+
+1. installs dependencies with `npm ci`
+2. runs the production build with `npm run build`
+
+This ensures that TypeScript compilation and the Vite production build remain valid.
+
+## Repository Status
+
+- Visibility: **Public**
+- Default branch: `main`
+- Primary purpose: personal academic and research portfolio
+
+## Author
+
+**Hyeonsu Jeong**
+
+- GitHub: [hyensooharry-design](https://github.com/hyensooharry-design)
+- LinkedIn: [hyeonsujeong](https://www.linkedin.com/in/hyeonsujeong/)
+
+---
+
+This repository is maintained as a public portfolio of my research and development activities.
