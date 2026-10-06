@@ -9,7 +9,7 @@ type Props = {
   language: Language;
   setLanguage: Dispatch<SetStateAction<Language>>;
   activeSection: SectionId;
-  setActiveSection: Dispatch<SetStateAction<SectionId>>;
+  onNavigateSection: (section: SectionId) => void;
 };
 
 type SectionItem = {
@@ -22,7 +22,7 @@ export default function Navbar({
   language,
   setLanguage,
   activeSection,
-  setActiveSection,
+  onNavigateSection,
 }: Props) {
   const [open, setOpen] = useState(false);
 
@@ -61,7 +61,7 @@ export default function Navbar({
       <nav className="section-container flex min-h-14 items-center justify-between gap-3 py-2.5">
         <button
           type="button"
-          onClick={() => setActiveSection("home")}
+          onClick={() => onNavigateSection("home")}
           className="text-left text-sm font-bold uppercase tracking-[0.16em] text-navy-900"
         >
           {profile.name}
@@ -72,7 +72,7 @@ export default function Navbar({
             <button
               type="button"
               key={item.id}
-              onClick={() => setActiveSection(item.id)}
+              onClick={() => onNavigateSection(item.id)}
               className={`stable-nav-item rounded-full px-2 py-1 text-[0.92rem] transition ${
                 activeSection === item.id
                   ? "bg-navy-900 font-bold text-white"
@@ -83,13 +83,13 @@ export default function Navbar({
             </button>
           ))}
 
-            <button
-              type="button"
-              onClick={toggleLanguage}
+          <button
+            type="button"
+            onClick={toggleLanguage}
             className="stable-pill ml-1 w-[4rem] rounded-full border border-navy-700 px-2.5 py-1 text-xs font-bold text-navy-700 transition hover:bg-navy-700 hover:text-white"
-            >
-              {language === "en" ? "KR" : "EN"}
-            </button>
+          >
+            {language === "en" ? "KR" : "EN"}
+          </button>
         </div>
 
         <button
@@ -110,7 +110,7 @@ export default function Navbar({
                 type="button"
                 key={item.id}
                 onClick={() => {
-                  setActiveSection(item.id);
+                  onNavigateSection(item.id);
                   setOpen(false);
                 }}
                 className={`rounded-2xl px-4 py-3 text-left text-sm ${
