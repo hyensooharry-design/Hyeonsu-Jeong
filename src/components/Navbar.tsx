@@ -32,11 +32,6 @@ export default function Navbar({
 
   const sectionItems: SectionItem[] = [
     {
-      id: "home" as const,
-      en: "Home",
-      ko: "Home",
-    },
-    {
       id: "cv" as const,
       en: "CV",
       ko: "CV",

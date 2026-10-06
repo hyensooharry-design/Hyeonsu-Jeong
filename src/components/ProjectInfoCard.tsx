@@ -1,4 +1,4 @@
-import { Github, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import type { Language } from "../data/portfolioData";
 import type {
   LocalizedText,
@@ -54,7 +54,6 @@ export default function ProjectInfoCard({
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-navy-900 transition hover:border-navy-700"
             >
-              <Github size={16} />
               GitHub
               <ExternalLink size={14} />
             </a>
