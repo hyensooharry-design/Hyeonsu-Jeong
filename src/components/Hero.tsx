@@ -35,14 +35,28 @@ export default function Hero({ language }: Props) {
         <div className="order-1 flex flex-col justify-between lg:order-2 lg:pl-6 lg:pr-1 xl:pl-10 xl:pr-2">
           <div>
           <p className="stable-copy mb-5 min-h-6 text-sm font-bold uppercase tracking-[0.22em] text-navy-700">
-            {t.eyebrow}
+            {language === "en" ? (
+              <>
+                Research Intern ·
+                <br />
+                Transportation & Logistics Optimization
+              </>
+            ) : (
+              t.eyebrow
+            )}
           </p>
 
           <h1 className="stable-heading min-h-[4.5rem] text-4xl font-bold tracking-tight text-navy-900 sm:min-h-[5.5rem] sm:text-5xl lg:min-h-[6.5rem] lg:text-6xl">
             {profile.name}
           </h1>
 
-          <p className="stable-heading mt-6 min-h-[7rem] max-w-[18ch] text-2xl font-medium leading-snug text-slate-800 sm:min-h-[8.5rem] sm:text-3xl">
+          <p
+            className={`stable-heading mt-6 min-h-[7rem] max-w-[18ch] font-medium leading-snug text-slate-800 sm:min-h-[8.5rem] ${
+              language === "en"
+                ? "text-[1.4rem] sm:text-[1.7rem]"
+                : "text-2xl sm:text-3xl"
+            }`}
+          >
             {t.title}
           </p>
 
