@@ -13,8 +13,6 @@ export default function Education({ language }: Props) {
           degree: "산업시스템공학 공학사",
           doubleMajor: "빅데이터 융합 복수전공",
           period: "2021.03 – 2027.02",
-          gpa: "전체 GPA",
-          majorGpa: "전공 GPA",
           program: "추가 학업 과정",
           microDegree: "스마트제조 빅데이터 마이크로디그리",
           microPeriod: "2024.09 – 2025.07",
@@ -25,8 +23,6 @@ export default function Education({ language }: Props) {
           degree: "B.E. in Industrial and Systems Engineering",
           doubleMajor: "Double Major in Big Data Convergence",
           period: "Mar. 2021 – Feb. 2027",
-          gpa: "Overall GPA",
-          majorGpa: "Major GPA",
           program: "Additional Academic Program",
           microDegree: "Smart Manufacturing Big Data Micro-Degree",
           microPeriod: "Sep. 2024 – Jul. 2025",
@@ -45,10 +41,6 @@ export default function Education({ language }: Props) {
                 <h3 className="text-xl font-bold text-navy-900">{t.university}</h3>
                 <p className="mt-2 text-sm font-semibold text-slate-800">{t.degree}</p>
                 <p className="mt-1 text-sm leading-7 text-slate-600">{t.doubleMajor}</p>
-                <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600">
-                  <span><strong className="text-navy-900">{t.gpa}:</strong> 3.65 / 4.5</span>
-                  <span><strong className="text-navy-900">{t.majorGpa}:</strong> 3.77 / 4.5</span>
-                </div>
               </div>
             </article>
 
