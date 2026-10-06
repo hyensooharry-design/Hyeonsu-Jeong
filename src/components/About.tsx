@@ -26,11 +26,11 @@ export default function About({ language }: Props) {
 
           <div className="mt-8 flex flex-wrap gap-2">
             {[
-              "Optimization",
-              "Computer Vision",
-              "Digital Twin",
-              "Industrial AI",
-              "Decision Support",
+              "Combinatorial Optimization",
+              "Logistics",
+              "Routing",
+              "Resource Allocation",
+              "Decision-Making",
             ].map((keyword) => (
               <span
                 key={keyword}

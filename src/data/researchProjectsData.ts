@@ -36,6 +36,7 @@ export type ResearchProjectItem = {
   tags: LocalizedText[];
   mainImage?: string;
   mainImageFit?: "contain" | "cover";
+  repoUrl?: string;
   visualGroups?: VisualGroup[];
   featureCards?: DetailFeatureCard[];
   flow: LocalizedText[];
@@ -56,41 +57,42 @@ const researchItems: ResearchProjectItem[] = [
     id: "cctv-location-optimization",
     group: "research",
     number: "01",
-    badge: t("Research Project", "연구 프로젝트"),
+    badge: t("Published Research · SCIE Q1", "게재 연구 · SCIE Q1"),
     title: t(
-      "CCTV Location Optimization for Construction Site Monitoring",
-      "건설현장 모니터링을 위한 CCTV 설치 위치 최적화"
+      "Automated Optimization of Visual Sensor Deployment for Construction Sites",
+      "건설현장 시각 센서 배치 자동 최적화"
     ),
     category: t(
       "Research · Optimization · Construction Site Monitoring",
       "연구 · 최적화 · 건설현장 모니터링"
     ),
     summary: t(
-      "A study that formulates CCTV placement and orientation as an optimization problem to reduce blind spots in construction site monitoring.",
-      "건설현장의 감시 사각지대를 줄이기 위해 CCTV의 위치와 방향을 최적화 문제로 정의한 연구입니다."
+      "A published study on automated CCTV placement and viewing-direction optimization for construction sites, combining grid-based visibility modeling with precision- and runtime-oriented search strategies.",
+      "건설현장을 대상으로 CCTV 위치와 관측 방향을 자동 최적화하고, 격자 기반 가시성 모델과 정밀도·실행시간 지향 탐색 전략을 결합한 게재 연구입니다."
     ),
     overview: t(
-      "This research optimizes CCTV placement and orientation to improve visual monitoring efficiency in construction sites.",
-      "건설현장의 시각 모니터링 효율을 높이기 위해 CCTV 설치 위치와 방향을 최적화하는 연구입니다."
+      "Published in Automation in Construction (Vol. 192, 107264), this research develops automated visual-sensor deployment methods that explicitly consider site geometry, visibility, and computation-time requirements.",
+      "Automation in Construction 192권 107264에 게재된 연구로, 현장 형상과 가시성, 계산시간 요구를 고려한 시각 센서 자동 배치 방법을 개발했습니다."
     ),
     problem: t(
       "Construction sites change continuously as equipment, materials, and structures move. This makes blind spots and redundant monitoring likely, requiring efficient camera placement under limited resources.",
       "건설현장은 장비·자재·구조물이 계속 변해 CCTV 사각지대와 중복 감시가 발생하기 쉽습니다. 제한된 카메라로 위험 구역을 효율적으로 감시할 수 있는 배치 방법이 필요합니다."
     ),
     approach: t(
-      "The site was modeled as a grid-based space, and visible monitoring regions were calculated using field of view, sensing distance, and occlusion conditions. An optimization approach was then applied to search for camera positions and directions that improve coverage.",
-      "현장을 격자 기반 공간으로 모델링하고, 카메라의 시야각, 탐지 거리, 장애물로 인한 가림 조건을 고려하여 감시 가능 영역을 계산했습니다. 이후 커버리지 향상을 목표로 CCTV 위치와 방향을 탐색하는 최적화 방법을 적용했습니다."
+      "Construction sites were represented as grid-based 2D/2.5D environments. A precision-oriented model uses Greedy initialization with Simulated Annealing, while a runtime-oriented model reduces the candidate space and combines Greedy search with Late Acceptance Hill Climbing.",
+      "건설현장을 2D/2.5D 격자 환경으로 표현하고, 정밀도 지향 모델은 Greedy 초기해와 Simulated Annealing을, 실행시간 지향 모델은 후보공간 축소와 Greedy 및 Late Acceptance Hill Climbing을 결합했습니다."
     ),
     contributions: [
-      t("Modeled construction site space as a grid-based monitoring environment", "건설현장 공간을 격자 기반 감시 영역으로 모델링"),
-      t("Defined camera field-of-view, detection distance, and blind-spot constraints", "카메라 시야각, 탐지 거리, 사각지대 조건 정의"),
-      t("Structured the CCTV placement problem as an optimization task", "CCTV 배치 최적화 문제 구조화"),
-      t("Reviewed greedy and metaheuristic search strategies", "Greedy 및 메타휴리스틱 기반 탐색 방법 검토"),
+      t("Formulated CCTV placement and orientation as a coverage optimization problem", "CCTV 위치와 관측 방향을 커버리지 최적화 문제로 정식화"),
+      t("Modeled site visibility using grid-based geometry and terrain-aware height information", "격자 기반 형상과 지형 높이 정보를 활용한 가시성 모델링"),
+      t("Developed precision-oriented Greedy + SA optimization", "정밀도 지향 Greedy + SA 최적화 개발"),
+      t("Developed runtime-oriented candidate reduction + Greedy + LAHC optimization", "실행시간 지향 후보공간 축소 + Greedy + LAHC 최적화 개발"),
     ],
     outputs: [
+      t("Automation in Construction, 192 (2026), 107264", "Automation in Construction, 192 (2026), 107264 게재"),
+      t("DOI: 10.1016/j.autcon.2026.107264", "DOI: 10.1016/j.autcon.2026.107264"),
       t("Oral presentation at the Korean Institute of Industrial Engineers 2025 Fall Conference", "대한산업공학회 2025 추계 학술대회 구두 발표"),
-      t("Patent filing related to CCTV placement optimization", "CCTV 설치 위치 최적화 관련 특허 출원"),
-      t("Camera placement methodology for construction site visual monitoring", "건설현장 시각 모니터링을 위한 카메라 배치 방법론 정리"),
+      t("Patent application for CCTV placement optimization", "CCTV 설치 위치 최적화 관련 특허 출원"),
     ],
     tags: [
       t("Coverage Optimization", "Coverage Optimization"),
@@ -120,6 +122,7 @@ const researchItems: ResearchProjectItem[] = [
         ),
       },
     ],
+    repoUrl: "https://github.com/hyensooharry-design/Automated-optimization-of-visual-sensor-deployment-for-construction-sites",
     mainImage: "/images/RESEARCH/CONSTRUCTION CCTV/MAIN/CCTV MAIN.png",
     mainImageFit: "contain",
     visualGroups: [
@@ -240,42 +243,46 @@ const researchItems: ResearchProjectItem[] = [
     id: "industrial-safety-graph-rag",
     group: "research",
     number: "03",
-    badge: t("Capstone Design", "캡스톤 디자인"),
-    title: t("Industrial Safety Law Graph-RAG System", "산업안전보건 법령 Graph-RAG 시스템"),
+    badge: t("Accepted Journal Article", "학술지 게재 승인"),
+    title: t(
+      "Knowledge Graph-Based Legal Chain Reasoning for Industrial Safety Decision Support",
+      "산업안전 의사결정 지원을 위한 법령 지식 그래프 기반 Legal Chain 추론"
+    ),
     category: t("Graph-RAG · Legal AI · Decision Support", "Graph-RAG · 법률 AI · 의사결정 지원"),
     summary: t(
-      "A Graph-RAG system that structures industrial safety laws as graphs to connect obligations, exceptions, penalties, and evidence based on site conditions.",
-      "산업안전보건 법령을 그래프 구조로 변환하여 현장 조건에 따른 의무·예외·처벌 조항을 근거 기반으로 연결하는 시스템입니다."
+      "A Legal Graph-RAG framework that connects statutory structure, semantic legal rules, source provenance, and case-relevant evidence to construct traceable Legal Chains for industrial safety decision support.",
+      "법령 구조, 의미 기반 법적 규칙, 출처 추적 정보, 사례 관련 근거를 연결하여 추적 가능한 Legal Chain을 구성하는 산업안전 의사결정 지원 Legal Graph-RAG 프레임워크입니다."
     ),
     overview: t(
-      "This Graph-RAG system transforms industrial safety laws into graph structures and connects obligations, exceptions, penalties, and evidence according to site conditions.",
-      "산업안전보건 법령을 그래프 구조로 변환하여, 현장 조건에 따른 의무·예외·처벌 조항을 근거 기반으로 연결하는 Graph-RAG 시스템입니다."
+      "The framework integrates Document Graph, Annex Graph, Reasoning Graph, and a Provenance Layer. Retrieved evidence is normalized into an Evidence Pack and organized as a Legal Chain linking obligations, detailed requirements, and legal consequences.",
+      "Document Graph, Annex Graph, Reasoning Graph, Provenance Layer를 통합하고, 검색 근거를 Evidence Pack으로 정규화한 뒤 의무·세부 요구사항·법적 결과를 Legal Chain으로 연결합니다."
     ),
     problem: t(
       "Industrial safety laws involve complex connections among articles, annexes, exceptions, and penalties. A system is needed to present both legal evidence and reasoning chains for practical site-level decisions.",
       "산업안전보건 법령은 조문·별표·예외·처벌 조항이 복잡하게 연결되어 현장 조건에 맞게 적용하기 어렵습니다. 관련 근거와 법적 판단 흐름을 함께 제시하는 시스템이 필요합니다."
     ),
     approach: t(
-      "Legal documents were structured into Document Graph, Annex Graph, and Reasoning Graph. The system retrieves related articles, annexes, obligations, exceptions, and penalties together based on user queries.",
-      "법령 문서를 Document Graph, Annex Graph, Reasoning Graph로 구조화하고, 질의에 따라 관련 조문과 별표, 의무, 예외, 처벌 조항을 함께 검색하는 Graph-RAG 구조를 설계했습니다."
+      "Industrial-safety statutes were represented through document, annex, reasoning, and provenance structures. Hybrid retrieval assembles an Evidence Pack, constructs an obligation-to-requirement-to-consequence Legal Chain, and generates answers with traceable statutory evidence.",
+      "산업안전 법령을 문서·별표·추론·출처 추적 구조로 표현했습니다. Hybrid retrieval을 통해 Evidence Pack을 구성하고, 의무→세부 요구사항→법적 결과의 Legal Chain을 만든 뒤 추적 가능한 법령 근거와 함께 답변을 생성합니다."
     ),
     contributions: [
-      t("Collected and structured industrial safety law data", "산업안전보건 법령 데이터 수집 및 구조화"),
-      t("Designed Document Graph, Annex Graph, and Reasoning Graph structures", "Document Graph, Annex Graph, Reasoning Graph 설계"),
-      t("Implemented a FastAPI-based question-answering backend", "FastAPI 기반 질의응답 백엔드 구현"),
-      t("Developed a React-based legal QA interface", "React 기반 법령 질의응답 UI 개발"),
-      t("Designed an Evidence Pack structure for source text, related provisions, and claim status", "근거 문장, 관련 조항, 판단 상태를 함께 보여주는 Evidence Pack 구조 설계"),
+      t("Designed Document Graph, Annex Graph, Reasoning Graph, and provenance structures", "Document Graph, Annex Graph, Reasoning Graph 및 provenance 구조 설계"),
+      t("Designed Evidence Pack normalization and Legal Chain construction", "Evidence Pack 정규화 및 Legal Chain 구성 설계"),
+      t("Implemented graph-based retrieval and a FastAPI question-answering backend", "Graph 기반 검색 및 FastAPI 질의응답 백엔드 구현"),
+      t("Implemented citation formatting and evidence sufficiency checking", "인용 포맷팅 및 근거 충분성 검증 구현"),
+      t("Evaluated the framework on 42 case-based industrial-safety legal scenarios", "42개 산업안전 사례 기반 법령 시나리오로 프레임워크 평가"),
     ],
     outputs: [
-      t("Developed an industrial safety law Graph-RAG system", "산업안전보건 법령 Graph-RAG 시스템 개발"),
-      t("Completed a capstone design project for legal decision support", "법령 의사결정 지원용 캡스톤 디자인 프로젝트 수행"),
-      t("Implemented graph-based legal retrieval and evidence presentation", "Graph 기반 법령 검색 및 근거 제시 구조 구현"),
+      t("Journal article accepted in the Journal of the Korean Institute of Industrial Engineers", "대한산업공학회지 논문 게재 승인"),
+      t("42-scenario evaluation: 33 criminal precedent-based + 9 administrative adjudication-based cases", "42개 시나리오 평가: 형사판례 기반 33건 + 행정심판례 기반 9건"),
+      t("Reported F1: Article 0.737 · Paragraph 0.715 · Subparagraph/Item 0.607", "주요 F1: 조 0.737 · 항 0.715 · 호/목 0.607"),
     ],
     tags: [
       t("Legal Knowledge Graph", "Legal Knowledge Graph"),
       t("Graph-based Retrieval", "Graph-based Retrieval"),
       t("Legal Chain Reasoning", "Legal Chain Reasoning"),
     ],
+    repoUrl: "https://github.com/hyensooharry-design/industrial-safety-law-graph-rag-system",
     mainImage: "/images/RESEARCH/GRAPH-RAG/MAIN/visualisation.png",
     mainImageFit: "contain",
     featureCards: [
@@ -310,6 +317,7 @@ const researchItems: ResearchProjectItem[] = [
       t("Graph Construction", "Graph Construction"),
       t("Graph-based Retrieval", "Graph-based Retrieval"),
       t("Evidence Pack", "Evidence Pack"),
+      t("Legal Chain", "Legal Chain"),
       t("Answer Generation", "Answer Generation"),
     ],
   },
@@ -407,42 +415,43 @@ const projectItems: ResearchProjectItem[] = [
     id: "face-recognition-attendance",
     group: "projects",
     number: "02",
-    badge: t("Practical Development Project", "실무 개발 프로젝트"),
+    badge: t("Implemented System", "구현 완료 시스템"),
     title: t("Vector-based Face Recognition Attendance System", "벡터 기반 얼굴 인식 출결 시스템"),
     category: t("Computer Vision · Web Application · System Development", "컴퓨터 비전 · 웹 애플리케이션 · 시스템 개발"),
     summary: t(
-      "A practical development project that automates attendance using face recognition with OpenCV and Streamlit.",
-      "OpenCV와 Streamlit을 활용하여 얼굴 인식 기반 출결 자동화 시스템을 개발한 실무형 프로젝트입니다."
+      "A face-recognition attendance system combining FastAPI, Supabase, OpenCV face detection, ArcFace ONNX embeddings, and a Streamlit operator interface.",
+      "FastAPI, Supabase, OpenCV 얼굴 검출, ArcFace ONNX 임베딩, Streamlit 운영자 UI를 결합한 얼굴 인식 출결 시스템입니다."
     ),
     overview: t(
-      "This project developed a face-recognition-based attendance automation system using OpenCV and Streamlit.",
-      "OpenCV와 Streamlit을 활용하여 얼굴 인식 기반 출결 자동화 시스템을 개발한 실무형 프로젝트입니다."
+      "The system supports employee management, face enrollment, camera management, check-in/check-out recognition, attendance logging, and an administrator interface.",
+      "직원 관리, 얼굴 등록, 카메라 관리, 출퇴근 인식, 출결 로그, 관리자 인터페이스를 하나의 시스템으로 구현했습니다."
     ),
     problem: t(
       "Manual attendance checking in education or training settings is time-consuming and can lead to missing records or proxy attendance. A face recognition system can automate this process.",
       "교육·실습 환경의 수동 출결 관리는 시간이 오래 걸리고 기록 누락이나 대리 출석 문제가 발생할 수 있습니다. 얼굴 인식을 통해 출결을 자동화하는 시스템이 필요합니다."
     ),
     approach: t(
-      "Face images were converted into vector embeddings, and real-time camera input was compared with registered user data to automatically record attendance events.",
-      "얼굴 이미지를 벡터 임베딩으로 변환하고, 실시간 카메라 입력과 등록된 사용자 데이터를 비교하여 출결 이벤트를 자동으로 기록하는 구조를 구현했습니다."
+      "OpenCV detects a frontal face, ArcFace ONNX generates a normalized embedding, and cosine similarity compares it with embeddings stored in Supabase. FastAPI handles recognition and CRUD endpoints, while Streamlit provides the webcam and administrator UI.",
+      "OpenCV로 얼굴을 검출하고 ArcFace ONNX로 정규화된 임베딩을 생성한 뒤, Supabase에 저장된 임베딩과 cosine similarity로 비교합니다. FastAPI가 인식 및 CRUD API를 담당하고 Streamlit이 웹캠·관리자 UI를 제공합니다."
     ),
     contributions: [
-      t("Implemented OpenCV-based face recognition", "OpenCV 기반 얼굴 인식 기능 구현"),
-      t("Developed a Streamlit-based real-time monitoring UI", "Streamlit 기반 실시간 모니터링 UI 개발"),
-      t("Built user enrollment and attendance log management features", "사용자 등록 및 출결 로그 관리 기능 구현"),
-      t("Designed database structure and API server integration", "DB 설계 및 API 서버 연동"),
-      t("Configured real-time recognition result display and event logging", "실시간 인식 결과 표시 및 기록 기능 구성"),
+      t("Implemented OpenCV face detection and ArcFace ONNX embedding inference", "OpenCV 얼굴 검출 및 ArcFace ONNX 임베딩 추론 구현"),
+      t("Implemented FastAPI recognition and management endpoints", "FastAPI 기반 인식 및 관리 API 구현"),
+      t("Integrated Supabase employee, face-embedding, camera, schedule, and attendance data", "Supabase 기반 직원·얼굴 임베딩·카메라·스케줄·출결 데이터 연동"),
+      t("Developed a Streamlit webcam and administrator interface", "Streamlit 기반 웹캠 및 관리자 인터페이스 개발"),
+      t("Added automated smoke tests and GitHub Actions CI", "자동 smoke test 및 GitHub Actions CI 구성"),
     ],
     outputs: [
-      t("Developed a prototype face recognition attendance system", "얼굴 인식 출결 시스템 프로토타입 개발"),
-      t("Implemented real-time video-based attendance event recording", "실시간 영상 기반 출결 이벤트 기록 기능 구현"),
-      t("Built user enrollment, camera selection, and log management features", "사용자 등록, 카메라 선택, 로그 관리 기능 구현"),
+      t("Completed an end-to-end portfolio implementation with API, database, and UI layers", "API·데이터베이스·UI 계층을 포함한 포트폴리오 구현 완료"),
+      t("Implemented check-in/check-out recognition and attendance event logging", "Check-in/Check-out 인식 및 출결 이벤트 기록 구현"),
+      t("Added reproducible configuration, Docker support, tests, and CI", "재현 가능한 설정, Docker, 테스트, CI 구성"),
     ],
     tags: [
       t("Face Recognition", "Face Recognition"),
       t("Vector Embedding", "Vector Embedding"),
       t("Attendance Automation", "Attendance Automation"),
     ],
+    repoUrl: "https://github.com/hyensooharry-design/face_attendance_api",
     mainImage: "/images/RESEARCH/ATTENDANCE/MAIN/FACERECOGNIZE.png",
     mainImageFit: "contain",
     featureCards: [

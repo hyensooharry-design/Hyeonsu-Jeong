@@ -4,11 +4,11 @@ import Navbar from "./components/Navbar";
 import CV from "./components/CV";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Education from "./components/Education";
 import ResearchProjects from "./components/ResearchProjectsGallery";
 import PublicationIP from "./components/PublicationIP";
 import Awards from "./components/AwardsSection";
 import Experience from "./components/Experience";
-import Contact from "./components/Contact";
 
 export type SectionId =
   | "home"
@@ -16,8 +16,7 @@ export type SectionId =
   | "research"
   | "publications"
   | "awards"
-  | "experience"
-  | "contact";
+  | "experience";
 
 function App() {
   const [language, setLanguage] = useState<Language>("en");
@@ -30,6 +29,7 @@ function App() {
           <>
             <Hero language={language} />
             <About language={language} />
+            <Education language={language} />
           </>
         );
       case "cv":
@@ -42,8 +42,6 @@ function App() {
         return <Awards language={language} />;
       case "experience":
         return <Experience language={language} />;
-      case "contact":
-        return <Contact language={language} />;
       default:
         return null;
     }

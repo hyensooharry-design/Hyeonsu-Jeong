@@ -1,3 +1,4 @@
+import { Github, ExternalLink } from "lucide-react";
 import type { Language } from "../data/portfolioData";
 import type {
   LocalizedText,
@@ -45,7 +46,20 @@ export default function ProjectInfoCard({
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-x-4 gap-y-2 pt-2">
+        <div className="flex flex-wrap items-center gap-3 pt-2">
+          {project.repoUrl ? (
+            <a
+              href={project.repoUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-navy-900 transition hover:border-navy-700"
+            >
+              <Github size={16} />
+              GitHub
+              <ExternalLink size={14} />
+            </a>
+          ) : null}
+
           {project.tags.map((tag) => (
             <span
               key={tag.en}

@@ -16,6 +16,11 @@ type Props = {
 const activities = {
   en: [
     {
+      period: "2026.05 - Present",
+      title: "Startup-Centered University Program: Worker-Centric Industrial Safety Monitoring and Legal Decision Support Platform",
+      organization: "Korean Government-Funded Startup Program",
+    },
+    {
       period: "2025.12",
       title: "2025 G-NEX - Startup Booth Operation",
       organization: "Gyeongnam Global Innovation Festa",
@@ -37,6 +42,11 @@ const activities = {
     },
   ],
   ko: [
+    {
+      period: "2026.05 - Present",
+      title: "창업중심대학: 작업자 중심 산업안전 모니터링 및 법령 의사결정 지원 플랫폼",
+      organization: "정부지원 창업 프로그램",
+    },
     {
       period: "2025.12",
       title: "2025 G-NEX - 창업 부스 운영",

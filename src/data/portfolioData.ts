@@ -17,23 +17,22 @@ export const navItems = [
   { id: "publications", en: "Publications & IP", ko: "연구성과 및 지식재산" },
   { id: "awards", en: "Awards", ko: "수상" },
   { id: "experience", en: "Experience", ko: "경험" },
-  { id: "contact", en: "Contact", ko: "연락" },
 ];
 
 export const heroText = {
   en: {
-    eyebrow: "Undergraduate Researcher · Industrial Systems Engineering",
-    title: "Building AI and optimization-based solutions for safer and smarter industrial sites.",
+    eyebrow: "Research Intern · Transportation & Logistics Optimization",
+    title: "Solving complex decision-making problems through optimization and data-driven methods.",
     description:
-      "I focus on optimization, computer vision, digital twin systems, and evidence-based decision support for industrial and construction environments.",
+      "My research focuses on combinatorial optimization, routing, resource allocation, and logistics systems, with experience applying optimization to real-world industrial and construction environments.",
     primaryButton: "View Research",
     secondaryButton: "Download Resume",
   },
   ko: {
-    eyebrow: "학부 연구생 · 산업시스템공학",
-    title: "더 안전하고 스마트한 산업 현장을 위한 AI·최적화 기반 솔루션을 만듭니다.",
+    eyebrow: "연구 인턴 · 교통·물류 최적화",
+    title: "최적화와 데이터 기반 방법론으로 복잡한 의사결정 문제를 해결합니다.",
     description:
-      "최적화, 컴퓨터 비전, 디지털트윈, 근거 기반 의사결정 지원 기술을 산업 및 건설 현장 문제에 적용하는 데 관심을 두고 있습니다.",
+      "조합최적화, 경로계획, 자원배분, 물류 시스템을 중심으로 연구하고 있으며, 산업 및 건설 현장의 실제 문제에 최적화 방법론을 적용해왔습니다.",
     primaryButton: "연구 보기",
     secondaryButton: "이력서 다운로드",
   },
@@ -41,13 +40,13 @@ export const heroText = {
 
 export const metrics = [
   {
-    value: "1",
-    en: "SCI Q1 Manuscript Under Review",
-    ko: "SCI Q1 논문 Under Review",
+    value: "2",
+    en: "First-Author Journal Articles",
+    ko: "제1저자 학술지 논문",
   },
   {
-    value: "1",
-    en: "Patent Filed",
+    value: "2",
+    en: "Patent Applications",
     ko: "특허 출원",
   },
   {
@@ -56,7 +55,7 @@ export const metrics = [
     ko: "소프트웨어 등록",
   },
   {
-    value: "15+",
+    value: "15",
     en: "Awards",
     ko: "수상",
   },
@@ -64,19 +63,18 @@ export const metrics = [
 
 export const about = {
   en: [
-    "I am an undergraduate researcher in Industrial Systems Engineering at Gyeongsang National University, focused on applying optimization, computer vision, and digital transformation to real industrial and construction-site problems.",
-    "My work centers on visual sensor placement, efficient visual data acquisition, digital twin-based monitoring, and AI-driven decision support systems for safer and smarter worksites.",
+    "I am an Industrial and Systems Engineering student and research intern interested in optimization and decision-making for complex systems. My research focuses on combinatorial optimization, routing, resource allocation, and logistics, with an emphasis on translating real-world operational problems into tractable optimization models.",
+    "My previous work has applied these methods to construction and industrial environments, including visual sensor deployment, digital-twin data acquisition, and industrial safety decision support. I am currently expanding this experience toward transportation and logistics optimization, while exploring learning-based approaches for solving large-scale and complex optimization problems.",
   ],
   ko: [
-    "저는 경상국립대학교 산업시스템공학부에서 산업시스템공학과 빅데이터 융합전공을 공부하며, 최적화·컴퓨터 비전·디지털 전환 기술을 실제 산업 및 건설 현장 문제에 적용하는 연구를 수행하고 있습니다.",
-    "주요 관심 분야는 시각 센서 배치 최적화, 효율적인 시각 데이터 수집, 디지털트윈 기반 현장 모니터링, 산업안전 의사결정 지원 시스템입니다.",
+    "저는 복잡한 시스템의 최적화와 의사결정 문제를 연구하는 산업시스템공학 전공자이자 연구 인턴입니다. 조합최적화, 경로계획, 자원배분, 물류 시스템을 주요 연구 관심 분야로 두고 있으며, 실제 운영 문제를 수리적·계산적 최적화 문제로 정의하고 해결하는 데 관심이 있습니다.",
+    "지금까지 건설·산업 현장을 대상으로 시각 센서 배치, 디지털트윈 데이터 수집, 산업안전 의사결정 지원 등의 문제에 최적화 방법론을 적용해왔습니다. 현재는 이러한 경험을 교통·물류 최적화로 확장하고 있으며, 대규모·복잡 최적화 문제를 해결하기 위한 학습 기반 최적화 방법에도 관심을 두고 있습니다.",
   ],
 };
-
 export const projects = [
   {
     title: {
-      en: "CCTV Location Optimization for Construction Site Monitoring",
+      en: "Automated Optimization of Visual Sensor Deployment for Construction Sites",
       ko: "건설현장 모니터링을 위한 CCTV 설치 위치 최적화",
     },
     type: {
@@ -97,13 +95,13 @@ export const projects = [
     },
     highlights: {
       en: [
-        "SCI Q1 manuscript under review",
+        "Published in Automation in Construction (SCIE Q1)",
         "Oral presentation at Korean Institute of Industrial Engineers",
         "Patent filed",
         "Software copyright registered",
       ],
       ko: [
-        "SCI Q1 논문 Under Review",
+        "Automation in Construction 게재 (SCIE Q1)",
         "대한산업공학회 구두 발표",
         "특허 출원",
         "소프트웨어 등록",
@@ -170,7 +168,7 @@ export const projects = [
   },
   {
     title: {
-      en: "Industrial Safety Law Graph-RAG System",
+      en: "Knowledge Graph-Based Legal Chain Reasoning for Industrial Safety Decision Support",
       ko: "산업안전보건 법령 Graph-RAG 시스템",
     },
     type: {
@@ -178,16 +176,16 @@ export const projects = [
       ko: "Graph-RAG · 법률 AI · 의사결정 지원",
     },
     status: {
-      en: "In Development",
-      ko: "개발 중",
+      en: "Accepted Journal Article",
+      ko: "학술지 게재 승인",
     },
     problem: {
       en: "Industrial safety regulations are complex and difficult to apply directly to workplace situations. Simple RAG systems may retrieve related text but often fail to judge obligations, exceptions, penalties, and evidence chains reliably.",
       ko: "산업안전보건 법령은 조문, 별표, 예외, 처벌 조항이 복잡하게 연결되어 있어 실제 현장 상황에 직접 적용하기 어렵습니다. 단순 RAG는 관련 문장을 찾을 수는 있지만 의무, 예외, 처벌, 근거 체인을 안정적으로 판단하기 어렵습니다.",
     },
     approach: {
-      en: "Developing a Graph-RAG system that structures Korean industrial safety laws into document, annex, and reasoning graphs to support evidence-backed legal decision making.",
-      ko: "국내 산업안전보건 법령을 Document Graph, Annex Graph, Reasoning Graph로 구조화하여 근거 기반 법령 의사결정을 지원하는 Graph-RAG 시스템을 개발하고 있습니다.",
+      en: "Developed a Legal Graph-RAG framework that integrates document, annex, reasoning, and provenance graphs with Evidence Pack and Legal Chain construction for traceable industrial-safety legal decision support.",
+      ko: "산업안전보건 법령을 Document Graph, Annex Graph, Reasoning Graph와 Provenance Layer로 구조화하고, Evidence Pack과 Legal Chain을 통해 근거 추적이 가능한 법령 의사결정을 지원하는 Graph-RAG 프레임워크를 개발했습니다.",
     },
     highlights: {
       en: ["Document Graph", "Annex Graph", "Reasoning Graph", "Evidence-backed QA"],
@@ -226,7 +224,7 @@ export const publications = [
     title: "Method for Searching Optimal CCTV Camera Installation Locations for Construction Site Monitoring",
     meta: {
       en: "Patent Filed · Application No. 10-2026-0073586 · First Inventor / Primary Contributor",
-      ko: "특허 출원 · 출원번호 10-2026-0073586 · 제1저작자",
+      ko: "특허 출원 · 출원번호 10-2026-0073586 · 제1발명자",
     },
   },
   {
@@ -243,6 +241,14 @@ export const publications = [
     meta: {
       en: "Oral Presentation · Korean Institute of Industrial Engineers · First Author",
       ko: "구두 발표 · 대한산업공학회 · 제1저자",
+    },
+  },
+  {
+    category: { en: "Poster", ko: "포스터 발표" },
+    title: "Optimization of Resolution of 3D Digital Maps in Industrial Sites Based on Work Area Importance Derived from Terrain Information",
+    meta: {
+      en: "Poster Presentation · Korea Institute of Industrial Engineers (KIIE) Conference 2026 · Co-author",
+      ko: "포스터 발표 · 대한산업공학회 2026 학술대회 · 공동저자",
     },
   },
   {
