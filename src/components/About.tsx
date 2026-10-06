@@ -19,7 +19,14 @@ export default function About({ language }: Props) {
           <div className="space-y-6 text-base leading-8 text-slate-700">
             {about[language].map((paragraph) => (
               <p key={paragraph} className="stable-copy max-w-none">
-                {paragraph}
+                {paragraph
+                  .split(/(?<=\.)\s+/)
+                  .filter(Boolean)
+                  .map((sentence) => (
+                    <span key={sentence} className="block">
+                      {sentence}
+                    </span>
+                  ))}
               </p>
             ))}
           </div>
