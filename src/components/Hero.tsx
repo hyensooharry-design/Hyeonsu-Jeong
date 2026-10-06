@@ -59,9 +59,13 @@ export default function Hero({ language }: Props) {
           >
             {language === "en" ? (
               <>
-                Solving complex decision-making problems
+                Solving complex
                 <br />
-                through optimization and data-driven methods.
+                decision-making problems
+                <br />
+                through optimization and
+                <br />
+                data-driven methods.
               </>
             ) : (
               t.title
