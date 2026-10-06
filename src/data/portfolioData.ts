@@ -196,19 +196,19 @@ export const projects = [
 
 export const publications = [
   {
-    category: { en: "KCI", ko: "KCI" },
-    title: "Knowledge Graph-Based Legal Chain Reasoning for Industrial Safety Decision Support",
-    meta: {
-      en: "First Author · Accepted · Journal of the Korean Institute of Industrial Engineers · Q1, KCI, Excellent Accredited",
-      ko: "제1저자 · Accepted · Journal of the Korean Institute of Industrial Engineers · Q1, KCI, 우수등재",
-    },
-  },
-  {
     category: { en: "SCI", ko: "SCI" },
     title: "Automated optimization of visual sensor deployment for construction sites",
     meta: {
       en: "First Author · Automation in Construction, 192, 107264 · DOI: 10.1016/j.autcon.2026.107264 · Q1, SCIE, 2025 IF 12.6",
       ko: "제1저자 · Automation in Construction, 192, 107264 · DOI: 10.1016/j.autcon.2026.107264 · Q1, SCIE, 2025 IF 12.6",
+    },
+  },
+  {
+    category: { en: "KCI", ko: "KCI" },
+    title: "Knowledge Graph-Based Legal Chain Reasoning for Industrial Safety Decision Support",
+    meta: {
+      en: "First Author · Accepted · Journal of the Korean Institute of Industrial Engineers · Q1, KCI, Excellent Accredited",
+      ko: "제1저자 · Accepted · Journal of the Korean Institute of Industrial Engineers · Q1, KCI, 우수등재",
     },
   },
   {
