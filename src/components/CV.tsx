@@ -15,6 +15,15 @@ type Props = {
 export default function CV({ language }: Props) {
   const cvUrl = profile.cvPdf;
   const viewerRef = useRef<HTMLDivElement | null>(null);
+  // The site forces a desktop-sized viewport on phones. The CSS lg: breakpoint
+  // therefore also matches on phones, but mobile browsers may not render PDFs
+  // inside iframes. Detect the actual device independently of viewport width.
+  const [isMobileDevice] = useState(
+    () =>
+      /iPhone|iPad|iPod|Android|Mobile|Windows Phone/i.test(navigator.userAgent) ||
+      (window.matchMedia("(pointer: coarse)").matches &&
+        Math.min(window.screen.width, window.screen.height) < 1024)
+  );
   const [pdf, setPdf] = useState<PDFDocumentProxy | null>(null);
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -138,15 +147,17 @@ export default function CV({ language }: Props) {
           </a>
         </div>
 
-        <div className="mt-7 hidden overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-sm lg:block">
-          <iframe
-            title="Curriculum Vitae PDF"
-            src={cvUrl}
-            className="h-[78vh] min-h-[44rem] w-full"
-          />
-        </div>
+        {!isMobileDevice ? (
+          <div className="mt-7 hidden overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-sm lg:block">
+            <iframe
+              title="Curriculum Vitae PDF"
+              src={cvUrl}
+              className="h-[78vh] min-h-[44rem] w-full"
+            />
+          </div>
+        ) : null}
 
-        <div className="mt-7 space-y-6 lg:hidden">
+        <div className={isMobileDevice ? "mt-7 space-y-6" : "mt-7 space-y-6 lg:hidden"}>
           {status === "loading" ? (
             <div className="rounded-[24px] border border-slate-200 bg-white px-6 py-8 text-sm font-medium text-slate-600 shadow-sm">
               {labels.loading}
