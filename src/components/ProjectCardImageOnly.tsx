@@ -18,59 +18,54 @@ export default function ProjectCardImageOnly({
     <button
       type="button"
       onClick={onClick}
-      className="block rounded-[32px] border border-slate-200 bg-white text-left shadow-soft transition duration-200 hover:-translate-y-1 hover:shadow-lg"
+      className="group flex h-full w-full min-w-0 flex-col overflow-hidden rounded-[28px] border border-slate-200 bg-white text-left shadow-soft transition duration-200 hover:-translate-y-1 hover:border-slate-300 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-700"
     >
-      <article className="relative grid items-stretch gap-0 lg:h-[17rem] lg:grid-cols-[0.41fr_0.59fr]">
-        <div className="flex items-center p-6 sm:p-7 lg:p-8">
-          <ProjectImageFrame
-            src={project.mainImage}
-            alt={project.title[language]}
-            fit={project.mainImageFit}
-            className="h-[11rem] w-full sm:h-[11.5rem] lg:h-[12rem]"
+      <div className="w-full p-5 pb-0 sm:p-6 sm:pb-0">
+        <ProjectImageFrame
+          src={project.mainImage}
+          alt={project.title[language]}
+          fit={project.mainImageFit}
+          className="aspect-[16/9] w-full"
+        />
+      </div>
+
+      <div className="flex w-full min-w-0 flex-1 flex-col p-5 sm:p-6">
+        <div className="flex items-center justify-between gap-3">
+          <span className="text-xs font-semibold tracking-[0.12em] text-navy-700">
+            {project.number}
+          </span>
+          <ArrowUpRight
+            size={19}
+            className="shrink-0 text-navy-700 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            aria-hidden="true"
           />
         </div>
 
-        <div className="flex h-full flex-col overflow-hidden border-t border-slate-200/70 p-6 sm:p-7 lg:border-t-0 lg:p-8 lg:pl-8 xl:pl-10">
-          <div className="pointer-events-none absolute bottom-7 top-7 left-[41%] hidden w-px bg-slate-200/70 lg:block" />
-          <div className="flex flex-wrap items-start justify-between gap-4">
-            <span className="py-1 text-xs font-semibold text-navy-700">
-              {project.number}
-            </span>
+        <h4 className="stable-heading mt-4 line-clamp-3 text-[1.3rem] font-bold leading-snug text-navy-900 sm:text-[1.4rem]">
+          {project.title[language]}
+        </h4>
 
-            <div className="flex items-center gap-3">
-              <span className="inline-flex min-h-5 rounded-full bg-navy-50 px-3 py-1 text-xs font-semibold text-navy-700">
-                {project.badge[language]}
-              </span>
-              <ArrowUpRight size={20} className="text-navy-700" />
-            </div>
-          </div>
+        <p className="stable-copy mt-3 line-clamp-2 text-sm font-medium leading-6 text-slate-600">
+          {project.category[language]}
+        </p>
 
-          <div className="mt-4">
-            <h4
-              className="stable-heading line-clamp-2 text-[1.48rem] font-bold leading-[1.2] text-navy-900"
-            >
-              {project.title[language]}
-            </h4>
+        <div className="mt-auto pt-5">
+          <span className="inline-flex max-w-full rounded-full bg-navy-50 px-3 py-1.5 text-xs font-semibold leading-5 text-navy-700">
+            {project.badge[language]}
+          </span>
 
-            <p
-              className="stable-copy mt-3 line-clamp-2 text-[0.86rem] font-medium leading-6 text-slate-600"
-            >
-              {project.category[language]}
-            </p>
-          </div>
-
-          <div className="mt-auto flex flex-wrap gap-x-4 gap-y-2 pt-5">
+          <div className="mt-4 flex flex-wrap gap-2">
             {project.tags.map((item) => (
               <span
                 key={item.en}
-                className="stable-copy rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-700 transition duration-200 hover:-translate-y-1 hover:shadow-md"
+                className="stable-copy rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold leading-5 text-slate-700"
               >
                 {item[language]}
               </span>
             ))}
           </div>
         </div>
-      </article>
+      </div>
     </button>
   );
 }
