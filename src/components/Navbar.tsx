@@ -57,12 +57,12 @@ export default function Navbar({
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-300 bg-slate-100/95 backdrop-blur">
-      <nav className="section-container flex min-h-14 items-center justify-between gap-3 py-2.5">
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-[#f6f8fb]/95 backdrop-blur">
+      <nav className="section-container flex min-h-14 items-center justify-between gap-3 py-3">
         <button
           type="button"
           onClick={() => onNavigateSection("home")}
-          className="text-left text-sm font-bold uppercase tracking-[0.16em] text-navy-900"
+          className="text-left text-sm font-semibold uppercase tracking-[0.12em] text-navy-900"
         >
           {profile.name}
         </button>
@@ -73,10 +73,10 @@ export default function Navbar({
               type="button"
               key={item.id}
               onClick={() => onNavigateSection(item.id)}
-              className={`stable-nav-item rounded-full px-2 py-1 text-[0.92rem] transition ${
+              className={`stable-nav-item rounded-full px-2 py-1 text-sm transition-colors duration-150 ${
                 activeSection === item.id
-                  ? "bg-navy-900 font-bold text-white"
-                  : "font-medium text-slate-600 hover:bg-white hover:text-navy-800"
+                  ? "bg-navy-900 font-semibold text-white"
+                  : "font-medium text-slate-600 hover:bg-white/80 hover:text-navy-900"
               }`}
             >
               {item[language]}
@@ -86,7 +86,7 @@ export default function Navbar({
           <button
             type="button"
             onClick={toggleLanguage}
-            className="stable-pill ml-1 w-[4rem] rounded-full border border-navy-700 px-2.5 py-1 text-xs font-bold text-navy-700 transition hover:bg-navy-700 hover:text-white"
+            className="stable-pill ml-1 w-[4rem] rounded-full border border-slate-300 bg-[#f9fbfd] px-2.5 py-1 text-xs font-semibold text-navy-700 transition-colors hover:border-navy-700"
           >
             {language === "en" ? "KR" : "EN"}
           </button>
@@ -103,7 +103,7 @@ export default function Navbar({
       </nav>
 
       {open && (
-        <div className="border-t border-slate-300 bg-slate-100 lg:hidden">
+        <div className="border-t border-slate-200 bg-[#f6f8fb] lg:hidden">
           <div className="section-container flex flex-col gap-4 py-5">
             {sectionItems.map((item) => (
               <button
@@ -113,9 +113,9 @@ export default function Navbar({
                   onNavigateSection(item.id);
                   setOpen(false);
                 }}
-                className={`rounded-2xl px-4 py-3 text-left text-sm ${
+                className={`rounded-xl px-4 py-3 text-left text-sm ${
                   activeSection === item.id
-                    ? "bg-white font-bold text-navy-900"
+                    ? "bg-white font-semibold text-navy-900"
                     : "font-medium text-slate-700"
                 }`}
               >
@@ -126,7 +126,7 @@ export default function Navbar({
             <button
               type="button"
               onClick={toggleLanguage}
-              className="w-fit rounded-full border border-navy-700 px-4 py-2 text-xs font-bold text-navy-700"
+              className="w-fit rounded-full border border-slate-300 bg-[#f9fbfd] px-4 py-2 text-xs font-semibold text-navy-700"
             >
               {language === "en" ? "Switch to Korean" : "Switch to English"}
             </button>
