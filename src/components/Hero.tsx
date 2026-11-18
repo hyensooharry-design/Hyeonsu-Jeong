@@ -72,6 +72,16 @@ export default function Hero({ language }: Props) {
             )}
           </p>
 
+          {/* Phone-only placement; the original desktop photo remains unchanged. */}
+          <div className="mobile-hero-inline-photo hidden">
+            <img
+              src="/images/KakaoTalk_20260526_225140761.jpg"
+              alt="Hyeonsu Jeong profile"
+              loading="eager"
+              className="mobile-hero-inline-image"
+            />
+          </div>
+
           <p className="mobile-hero-description stable-copy mt-6 min-h-[6rem] max-w-3xl text-base leading-8 text-slate-600 sm:min-h-[7rem] sm:text-lg">
             {t.description}
           </p>
