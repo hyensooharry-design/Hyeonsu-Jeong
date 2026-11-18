@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download } from "lucide-react";
 import { getDocument, GlobalWorkerOptions } from "pdfjs-dist";
 import type { PDFDocumentProxy } from "pdfjs-dist/types/src/display/api";
 import pdfWorker from "pdfjs-dist/build/pdf.worker.min.mjs?url";
@@ -66,7 +66,7 @@ export default function CV({ language }: Props) {
 
       const pageFrame = document.createElement("div");
       pageFrame.className =
-        "overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-soft";
+        "overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-sm";
 
       const canvas = document.createElement("canvas");
       const context = canvas.getContext("2d");
@@ -124,13 +124,21 @@ export default function CV({ language }: Props) {
         };
 
   return (
-    <section id="cv" className="py-24">
+    <section id="cv" className="py-16 sm:py-20">
       <div className="section-container">
-        <div className="max-w-3xl">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-300 pb-6">
           <h2 className="section-title">Curriculum Vitae</h2>
+          <a
+            href={cvUrl}
+            download
+            className="inline-flex min-h-10 items-center gap-2 rounded-xl border border-slate-300 bg-[#f9fbfd] px-4 py-2 text-sm font-medium text-navy-900 transition-colors hover:border-slate-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-700"
+          >
+            <Download size={16} aria-hidden="true" />
+            {language === "ko" ? "CV 다운로드" : "Download CV"}
+          </a>
         </div>
 
-        <div className="mt-8 hidden overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-soft lg:block">
+        <div className="mt-7 hidden overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-sm lg:block">
           <iframe
             title="Curriculum Vitae PDF"
             src={cvUrl}
@@ -138,15 +146,15 @@ export default function CV({ language }: Props) {
           />
         </div>
 
-        <div className="mt-8 space-y-6 lg:hidden">
+        <div className="mt-7 space-y-6 lg:hidden">
           {status === "loading" ? (
-            <div className="rounded-[28px] border border-slate-200 bg-white px-6 py-8 text-sm font-medium text-slate-600 shadow-soft">
+            <div className="rounded-[24px] border border-slate-200 bg-white px-6 py-8 text-sm font-medium text-slate-600 shadow-sm">
               {labels.loading}
             </div>
           ) : null}
 
           {status === "error" ? (
-            <div className="rounded-[28px] border border-slate-200 bg-white px-6 py-8 shadow-soft">
+            <div className="rounded-[24px] border border-slate-200 bg-white px-6 py-8 shadow-sm">
               <p className="text-sm font-medium text-slate-600">{labels.error}</p>
               <a
                 href={cvUrl}
