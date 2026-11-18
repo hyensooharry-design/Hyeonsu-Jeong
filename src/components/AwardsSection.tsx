@@ -1,4 +1,5 @@
-import { ExternalLink } from "lucide-react";
+import { ChevronDown, Image as ImageIcon } from "lucide-react";
+import { useState } from "react";
 import type { Language } from "../data/portfolioData";
 import { awards, sectionLabels } from "../data/portfolioData";
 
@@ -7,6 +8,7 @@ type Props = {
 };
 
 type AwardCategory = "ai" | "data" | "startup" | "other";
+type AwardItem = (typeof awards)[number];
 
 const categoryLabels: Record<AwardCategory, { en: string; ko: string }> = {
   ai: { en: "AI", ko: "AI" },
@@ -39,6 +41,72 @@ function classifyAward(title: string, date: string): AwardCategory {
   return "startup";
 }
 
+function AwardCard({ award, language }: { award: AwardItem; language: Language }) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <article className="flex min-w-0 flex-col overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-soft transition duration-200 hover:border-slate-300 hover:shadow-lg">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+          <span className="text-xs font-bold tracking-[0.08em] text-slate-500">
+            {award.date}
+          </span>
+          <span className="inline-flex rounded-full bg-navy-50 px-3 py-1.5 text-xs font-semibold text-navy-700">
+            {award.prize[language]}
+          </span>
+        </div>
+
+        <h4 className="stable-heading mt-5 text-lg font-bold leading-snug text-navy-900">
+          {award.title[language]}
+        </h4>
+
+        <p className="stable-copy mt-3 text-sm leading-6 text-slate-600">
+          {award.issuer[language]}
+        </p>
+
+        <div className="mt-auto pt-6">
+          <button
+            type="button"
+            onClick={() => setExpanded((current) => !current)}
+            aria-expanded={expanded}
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-slate-50 px-4 py-2.5 text-sm font-semibold text-navy-900 transition-colors hover:border-navy-700 hover:bg-navy-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-700"
+          >
+            <ImageIcon size={17} aria-hidden="true" />
+            {expanded
+              ? language === "ko"
+                ? "상장 접기"
+                : "Hide certificate"
+              : language === "ko"
+                ? "상장 펼치기"
+                : "Show certificate"}
+            <ChevronDown
+              size={17}
+              aria-hidden="true"
+              className={expanded ? "rotate-180 transition-transform" : "transition-transform"}
+            />
+          </button>
+        </div>
+      </div>
+
+      {expanded ? (
+        <div className="border-t border-slate-200 bg-slate-50 p-5 sm:p-6">
+          <img
+            src={award.image}
+            alt={
+              language === "ko"
+                ? award.title.ko + " 상장"
+                : "Certificate for " + award.title.en
+            }
+            loading="lazy"
+            decoding="async"
+            className="mx-auto max-h-[32rem] w-full rounded-xl border border-slate-200 bg-white object-contain"
+          />
+        </div>
+      ) : null}
+    </article>
+  );
+}
+
 export default function AwardsSection({ language }: Props) {
   const label = sectionLabels.awards[language];
 
@@ -69,55 +137,11 @@ export default function AwardsSection({ language }: Props) {
 
               <div className="mt-6 grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:gap-8">
                 {items.map((award) => (
-                  <article
-                    key={`${award.date}-${award.title.en}-${award.prize.en}`}
-                    className="group flex min-w-0 flex-col overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-soft transition duration-200 hover:-translate-y-1 hover:border-slate-300 hover:shadow-lg"
-                  >
-                    <a
-                      href={award.image}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${award.title[language]} — ${language === "ko" ? "상장 이미지 크게 보기" : "Open award image"}`}
-                      className="flex h-64 items-center justify-center overflow-hidden border-b border-slate-200 bg-slate-50 p-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-navy-700 sm:h-72 lg:h-80"
-                    >
-                      <img
-                        src={award.image}
-                        alt={language === "ko" ? `${award.title.ko} 상장` : `Award certificate for ${award.title.en}`}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-full w-full object-contain transition-transform duration-200 group-hover:scale-[1.02]"
-                      />
-                    </a>
-
-                    <div className="flex flex-1 flex-col p-5 sm:p-6">
-                      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
-                        <span className="text-xs font-bold tracking-[0.08em] text-slate-500">
-                          {award.date}
-                        </span>
-                        <span className="inline-flex rounded-full bg-navy-50 px-3 py-1.5 text-xs font-semibold text-navy-700">
-                          {award.prize[language]}
-                        </span>
-                      </div>
-
-                      <h4 className="stable-heading mt-4 text-lg font-bold leading-snug text-navy-900">
-                        {award.title[language]}
-                      </h4>
-
-                      <p className="stable-copy mt-3 text-sm leading-6 text-slate-600">
-                        {award.issuer[language]}
-                      </p>
-
-                      <a
-                        href={award.image}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-auto inline-flex w-fit items-center gap-2 pt-5 text-sm font-semibold text-navy-700 transition hover:text-navy-900"
-                      >
-                        {language === "ko" ? "상장 크게 보기" : "View certificate"}
-                        <ExternalLink size={16} aria-hidden="true" />
-                      </a>
-                    </div>
-                  </article>
+                  <AwardCard
+                    key={[award.date, award.title.en, award.prize.en].join("-")}
+                    award={award}
+                    language={language}
+                  />
                 ))}
               </div>
             </section>

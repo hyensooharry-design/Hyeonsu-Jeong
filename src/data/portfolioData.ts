@@ -267,6 +267,19 @@ export const publications = [
 
 export const awards = [
   {
+    date: "2026.06.10",
+    image: "/images/AWARDS/2026-g-startup-mini-demo-day.webp",
+    title: {
+      en: "2026 G-Startup League Mini Demo-Day",
+      ko: "2026 G-스타트업리그 Mini Demo-Day",
+    },
+    prize: { en: "Grand Prize", ko: "최우수상" },
+    issuer: {
+      en: "Gyeongnam Entrepreneurship Education Network Chair Award",
+      ko: "경남창업교육네트워크 회장상",
+    },
+  },
+  {
     date: "2026.04.30",
     image: "/images/AWARDS/2026-gsat-young-startup-camp.webp",
     title: {
