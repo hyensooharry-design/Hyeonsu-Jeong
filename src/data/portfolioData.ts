@@ -238,28 +238,21 @@ export const publications = [
   },
   {
     category: { en: "Conference", ko: "학술 발표" },
+    title: "Optimization of Resolution of 3D Digital Maps in Industrial Sites Based on Work Area Importance Derived from Terrain Information",
+    titleKo: "지형정보 기반 작업구역 중요도에 따른 산업현장 3D 디지털 맵의 해상도 최적화",
+    url: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12935391",
+    meta: {
+      en: "Poster Presentation · Korean Institute of Industrial Engineers (KIIE) Conference 2026 · Co-author",
+      ko: "포스터 발표 · 대한산업공학회 2026 학술대회 · 공동저자",
+    },
+  },
+  {
+    category: { en: "Conference", ko: "학술 발표" },
     title: "CCTV Camera Placement Optimization for Construction Site Monitoring",
     url: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12484424",
     meta: {
       en: "Oral Presentation · Korean Institute of Industrial Engineers · First Author",
       ko: "구두 발표 · 대한산업공학회 · 제1저자",
-    },
-  },
-  {
-    category: { en: "Conference", ko: "학술 발표" },
-    title: "Additional Conference Presentation (DBpia NODE12935391)",
-    url: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12935391",
-    meta: {
-      en: "Conference Proceeding · Bibliographic details to be verified",
-      ko: "학술대회 발표 · 서지정보 확인 필요",
-    },
-  },
-  {
-    category: { en: "Poster", ko: "포스터 발표" },
-    title: "Optimization of Resolution of 3D Digital Maps in Industrial Sites Based on Work Area Importance Derived from Terrain Information",
-    meta: {
-      en: "Poster Presentation · Korea Institute of Industrial Engineers (KIIE) Conference 2026 · Co-author",
-      ko: "포스터 발표 · 대한산업공학회 2026 학술대회 · 공동저자",
     },
   },
   {
