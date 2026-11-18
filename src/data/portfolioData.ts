@@ -198,6 +198,7 @@ export const publications = [
   {
     category: { en: "SCI", ko: "SCI" },
     title: "Automated optimization of visual sensor deployment for construction sites",
+    url: "https://www.sciencedirect.com/science/article/pii/S0926580526005054?dgcid=coauthor#f0010",
     meta: {
       en: "First Author · Automation in Construction, 192, 107264 · DOI: 10.1016/j.autcon.2026.107264 · Q1, SCIE, 2025 IF 12.6",
       ko: "제1저자 · Automation in Construction, 192, 107264 · DOI: 10.1016/j.autcon.2026.107264 · Q1, SCIE, 2025 IF 12.6",
@@ -238,9 +239,19 @@ export const publications = [
   {
     category: { en: "Conference", ko: "학술 발표" },
     title: "CCTV Camera Placement Optimization for Construction Site Monitoring",
+    url: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12484424",
     meta: {
       en: "Oral Presentation · Korean Institute of Industrial Engineers · First Author",
       ko: "구두 발표 · 대한산업공학회 · 제1저자",
+    },
+  },
+  {
+    category: { en: "Conference", ko: "학술 발표" },
+    title: "Additional Conference Presentation (DBpia NODE12935391)",
+    url: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12935391",
+    meta: {
+      en: "Conference Proceeding · Bibliographic details to be verified",
+      ko: "학술대회 발표 · 서지정보 확인 필요",
     },
   },
   {
