@@ -15,20 +15,10 @@ type Props = {
 export default function CV({ language }: Props) {
   const cvUrl = profile.cvPdf;
   const viewerRef = useRef<HTMLDivElement | null>(null);
-  const [isDesktop, setIsDesktop] = useState(() =>
-    window.matchMedia("(min-width: 1024px)").matches
-  );
   const [pdf, setPdf] = useState<PDFDocumentProxy | null>(null);
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
-
-  useEffect(() => {
-    const query = window.matchMedia("(min-width: 1024px)");
-    const updateDesktop = () => setIsDesktop(query.matches);
-    query.addEventListener("change", updateDesktop);
-    return () => query.removeEventListener("change", updateDesktop);
-  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -151,7 +141,7 @@ export default function CV({ language }: Props) {
         <div className="mt-7 hidden overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-sm lg:block">
           <iframe
             title="Curriculum Vitae PDF"
-            src={isDesktop ? cvUrl : undefined}
+            src={cvUrl}
             className="h-[78vh] min-h-[44rem] w-full"
           />
         </div>
