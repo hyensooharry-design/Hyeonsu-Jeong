@@ -1,5 +1,5 @@
 import { ChevronDown, Image as ImageIcon } from "lucide-react";
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import type { Language } from "../data/portfolioData";
 import { awards, sectionLabels } from "../data/portfolioData";
 
@@ -41,13 +41,26 @@ function classifyAward(title: string, date: string): AwardCategory {
   return "startup";
 }
 
-function AwardCard({ award, language }: { award: AwardItem; language: Language }) {
+function AwardCard({
+  award,
+  language,
+  summaryHeight,
+}: {
+  award: AwardItem;
+  language: Language;
+  summaryHeight: number;
+}) {
   const [expanded, setExpanded] = useState(false);
 
   return (
     <article className="flex min-w-0 w-full flex-col self-start overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-soft transition duration-200 hover:border-slate-300 hover:shadow-lg">
-      <div className="flex flex-col p-5 sm:p-6">
-        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+      <div
+        data-award-summary
+        className="flex flex-col p-5 sm:p-6"
+        style={summaryHeight > 0 ? { minHeight: summaryHeight } : undefined}
+      >
+        <div data-award-info>
+          <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
           <span className="text-xs font-bold tracking-[0.08em] text-slate-500">
             {award.date}
           </span>
@@ -64,7 +77,9 @@ function AwardCard({ award, language }: { award: AwardItem; language: Language }
           {award.issuer[language]}
         </p>
 
-        <div className="pt-6">
+        </div>
+
+        <div data-award-footer className="mt-auto pt-6">
           <button
             type="button"
             onClick={() => setExpanded((current) => !current)}
@@ -109,6 +124,52 @@ function AwardCard({ award, language }: { award: AwardItem; language: Language }
 
 export default function AwardsSection({ language }: Props) {
   const label = sectionLabels.awards[language];
+  const sectionRef = useRef<HTMLElement>(null);
+  const [summaryHeight, setSummaryHeight] = useState(0);
+
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const summaries = Array.from(
+      section.querySelectorAll<HTMLElement>("[data-award-summary]")
+    );
+
+    const measure = () => {
+      const tallest = summaries.reduce((maxHeight, summary) => {
+        const info = summary.querySelector<HTMLElement>("[data-award-info]");
+        const footer = summary.querySelector<HTMLElement>("[data-award-footer]");
+        if (!info || !footer) return maxHeight;
+
+        const style = window.getComputedStyle(summary);
+        const naturalHeight =
+          info.getBoundingClientRect().height +
+          footer.getBoundingClientRect().height +
+          parseFloat(style.paddingTop) +
+          parseFloat(style.paddingBottom);
+
+        return Math.max(maxHeight, Math.ceil(naturalHeight));
+      }, 0);
+
+      setSummaryHeight((current) => (current === tallest ? current : tallest));
+    };
+
+    const observer = new ResizeObserver(measure);
+    summaries.forEach((summary) => {
+      const info = summary.querySelector<HTMLElement>("[data-award-info]");
+      const footer = summary.querySelector<HTMLElement>("[data-award-footer]");
+      if (info) observer.observe(info);
+      if (footer) observer.observe(footer);
+    });
+
+    window.addEventListener("resize", measure);
+    measure();
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, [language]);
 
   const groupedAwards = categoryOrder
     .map((category) => ({
@@ -120,7 +181,7 @@ export default function AwardsSection({ language }: Props) {
     .filter(({ items }) => items.length > 0);
 
   return (
-    <section id="awards" className="py-24">
+    <section id="awards" ref={sectionRef} className="py-24">
       <div className="section-container">
         <div className="max-w-3xl">
           <h2 className="section-title">{label.title}</h2>
@@ -141,6 +202,7 @@ export default function AwardsSection({ language }: Props) {
                     key={[award.date, award.title.en, award.prize.en].join("-")}
                     award={award}
                     language={language}
+                    summaryHeight={summaryHeight}
                   />
                 ))}
               </div>
