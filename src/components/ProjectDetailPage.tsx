@@ -42,9 +42,8 @@ export default function ProjectDetailPage({
             {language === "en" ? "Back to List" : "목록으로 돌아가기"}
           </button>
 
-          <div className="mt-10">
+          <div className="mt-8 rounded-[30px] border border-slate-200 bg-white px-5 py-8 shadow-sm sm:px-8 sm:py-10 lg:px-12 lg:py-12">
             <ProjectInfoCard language={language} group={group} project={project} />
-          </div>
 
           <div
             className={
@@ -61,6 +60,7 @@ export default function ProjectDetailPage({
 
           <div className="mt-12 border-t border-slate-300 pt-3 sm:mt-16">
             <DetailContentCard language={language} project={project} part="remaining" />
+          </div>
           </div>
         </div>
       </div>
