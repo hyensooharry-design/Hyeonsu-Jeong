@@ -57,7 +57,7 @@ export default function Navbar({
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-[#f6f8fb]/95 backdrop-blur">
+    <header className="mobile-navbar sticky top-0 z-50 border-b border-slate-200 bg-[#f6f8fb]/95 backdrop-blur">
       <nav className="section-container flex min-h-14 items-center justify-between gap-3 py-3">
         <button
           type="button"
