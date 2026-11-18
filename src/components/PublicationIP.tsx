@@ -111,7 +111,7 @@ export default function PublicationsIP({ language }: Props) {
                               href={item.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="mt-4 inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-navy-900 shadow-sm transition-colors duration-200 hover:border-navy-900 hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-900"
+                              className="mt-4 inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-[#f9fbfd] px-4 py-2.5 text-sm font-semibold text-navy-900 transition-colors duration-200 hover:border-slate-400 hover:bg-[#f9fbfd] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-900"
                               aria-label={(language === "ko" && "titleKo" in item ? item.titleKo : item.title) + " — " + (language === "ko" ? "원문 보기" : "View publication")}
                             >
                               {language === "ko" ? "원문 보기" : "View publication"}
