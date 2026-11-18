@@ -12,7 +12,11 @@ type PublicationGroup = {
     en: string;
     ko: string;
   };
-  items: typeof publications;
+  categories: Array<{
+    key: string;
+    label: { en: string; ko: string };
+    items: typeof publications;
+  }>;
 };
 
 const groupedCategories = [
@@ -49,11 +53,18 @@ export default function PublicationsIP({ language }: Props) {
     .map((group) => ({
       key: group.key,
       heading: group.heading,
-      items: publications.filter((item) =>
-        group.categories.includes(item.category.en)
-      ),
+      categories: group.categories
+        .map((category) => {
+          const items = publications.filter((item) => item.category.en === category);
+          return {
+            key: category,
+            label: items[0]?.category ?? { en: category, ko: category },
+            items,
+          };
+        })
+        .filter((category) => category.items.length > 0),
     }))
-    .filter((group) => group.items.length > 0);
+    .filter((group) => group.categories.length > 0);
 
   return (
     <section id="publications" className="py-24">
@@ -72,40 +83,45 @@ export default function PublicationsIP({ language }: Props) {
               </div>
 
               <div className="mt-6">
-                {group.items.map((item, index) => (
-                  <article
-                    key={item.title}
-                    className={`grid gap-4 border-slate-300 py-5 md:grid-cols-[12rem_1fr] md:gap-8 ${
-                      index === 0 ? "border-t-[1.5px]" : "border-t-[1.5px]"
-                    }`}
+                {group.categories.map((category) => (
+                  <div
+                    key={category.key}
+                    className="grid border-t-[1.5px] border-slate-300 md:grid-cols-[12rem_1fr] md:gap-8"
                   >
-                    <div className="text-sm font-bold uppercase tracking-[0.14em] text-slate-500">
-                      {item.category[language]}
+                    <div className="py-5 text-sm font-bold uppercase tracking-[0.14em] text-slate-500">
+                      {category.label[language]}
                     </div>
 
-                    <div>
-                      <h4 className="text-lg font-bold leading-snug text-navy-900">
-                        {item.title}
-                      </h4>
-
-                      <p className="mt-2 text-sm leading-7 text-slate-600">
-                        {item.meta[language]}
-                      </p>
-
-                      {"url" in item && item.url ? (
-                        <a
-                          href={item.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-4 inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-navy-900 shadow-sm transition-colors duration-200 hover:border-navy-900 hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-900"
-                          aria-label={`${item.title} — ${language === "ko" ? "원문 보기" : "View publication"}`}
+                    <div className="min-w-0">
+                      {category.items.map((item) => (
+                        <article
+                          key={item.title}
+                          className="border-b border-slate-200 py-5 last:border-b-0"
                         >
-                          {language === "ko" ? "원문 보기" : "View publication"}
-                          <ExternalLink size={15} aria-hidden="true" />
-                        </a>
-                      ) : null}
+                          <h4 className="text-lg font-bold leading-snug text-navy-900">
+                            {language === "ko" && "titleKo" in item ? item.titleKo : item.title}
+                          </h4>
+
+                          <p className="mt-2 text-sm leading-7 text-slate-600">
+                            {item.meta[language]}
+                          </p>
+
+                          {"url" in item && item.url ? (
+                            <a
+                              href={item.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="mt-4 inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-navy-900 shadow-sm transition-colors duration-200 hover:border-navy-900 hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-900"
+                              aria-label={(language === "ko" && "titleKo" in item ? item.titleKo : item.title) + " — " + (language === "ko" ? "원문 보기" : "View publication")}
+                            >
+                              {language === "ko" ? "원문 보기" : "View publication"}
+                              <ExternalLink size={15} aria-hidden="true" />
+                            </a>
+                          ) : null}
+                        </article>
+                      ))}
                     </div>
-                  </article>
+                  </div>
                 ))}
               </div>
             </section>
