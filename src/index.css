@@ -179,7 +179,7 @@ html:lang(ko) {
     display:block;
     width:100%;
     height:auto;
-    aspect-ratio:3/4;
+    aspect-ratio:1/1;
     border-radius:1rem;
     object-fit:cover;
     object-position:center bottom;
@@ -527,7 +527,7 @@ html:lang(ko) {
 
 @media (max-width: 390px) {
   .mobile-navbar .mobile-nav-row { padding-inline:1.25rem; }
-  .mobile-home-hero .mobile-hero-inline-image { aspect-ratio:3/4; }
+  .mobile-home-hero .mobile-hero-inline-image { aspect-ratio:1/1; }
   .mobile-research-detail .mobile-detail-paper { padding-inline:.95rem; }
   #research .mobile-research-card-title { font-size:1.04rem; }
 }
