@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import type { Language } from "../data/portfolioData";
 import type {
   LocalizedText,
@@ -216,6 +216,7 @@ export default function ProjectImageCarousel({
 }) {
   const images = useMemo(() => buildCarouselImages(project), [project]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
   const activeImage = images[activeIndex];
   const hasControls = images.length > 1;
 
@@ -235,7 +236,7 @@ export default function ProjectImageCarousel({
       : activeImage.fit;
 
   return (
-    <figure className="min-w-0 lg:pt-1">
+    <figure className="mobile-gallery min-w-0 lg:pt-1">
       <div className="flex items-center justify-between gap-3">
         <h2 className="text-xs font-semibold tracking-[0.08em] text-slate-600">
           Project Visuals
@@ -245,7 +246,30 @@ export default function ProjectImageCarousel({
         </span>
       </div>
 
-      <div className="relative mt-4">
+      <div
+        className="mobile-gallery-stage relative mt-4"
+        onTouchStart={(event) => {
+          if (!window.matchMedia("(max-width: 767px)").matches) return;
+          touchStartX.current = event.touches[0]?.clientX ?? null;
+        }}
+        onTouchEnd={(event) => {
+          const start = touchStartX.current;
+          touchStartX.current = null;
+          if (
+            start === null ||
+            !hasControls ||
+            !window.matchMedia("(max-width: 767px)").matches
+          ) return;
+          const end = event.changedTouches[0]?.clientX;
+          if (end === undefined) return;
+          const delta = end - start;
+          if (delta > 50) move(-1);
+          if (delta < -50) move(1);
+        }}
+        onTouchCancel={() => {
+          touchStartX.current = null;
+        }}
+      >
         <ProjectImageFrame
           src={activeImage.src}
           alt={text(language, activeImage.label)}
@@ -261,7 +285,7 @@ export default function ProjectImageCarousel({
               type="button"
               aria-label="Previous image"
               onClick={() => move(-1)}
-              className="absolute left-3 top-1/2 inline-flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-navy-900 shadow-sm transition hover:border-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-700"
+              className="mobile-gallery-arrow absolute left-3 top-1/2 inline-flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-navy-900 shadow-sm transition hover:border-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-700"
             >
               <ChevronLeft size={18} aria-hidden="true" />
             </button>
@@ -269,7 +293,7 @@ export default function ProjectImageCarousel({
               type="button"
               aria-label="Next image"
               onClick={() => move(1)}
-              className="absolute right-3 top-1/2 inline-flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-navy-900 shadow-sm transition hover:border-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-700"
+              className="mobile-gallery-arrow absolute right-3 top-1/2 inline-flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-navy-900 shadow-sm transition hover:border-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-700"
             >
               <ChevronRight size={18} aria-hidden="true" />
             </button>
@@ -277,12 +301,12 @@ export default function ProjectImageCarousel({
         ) : null}
       </div>
 
-      <figcaption className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+      <figcaption className="mobile-gallery-caption mt-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <p className="stable-copy text-xs leading-6 text-slate-500 sm:text-sm">
           {text(language, activeImage.caption)}
         </p>
         {hasControls ? (
-          <div className="flex shrink-0 items-center gap-2" aria-label="Select project image">
+          <div className="mobile-gallery-dots flex shrink-0 items-center gap-2" aria-label="Select project image">
             {images.map((image, index) => (
               <button
                 key={image.src}
