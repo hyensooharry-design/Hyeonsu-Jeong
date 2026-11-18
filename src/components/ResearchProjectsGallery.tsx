@@ -73,7 +73,7 @@ export default function ResearchProjectsGallery({
 
               <div className="mt-6 border-t-[1.5px] border-slate-300" />
 
-              <div className="mt-8 grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:gap-8">
+              <div className="mt-8 grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 xl:grid-cols-3 xl:gap-6">
                 {group.items.map((project) => (
                   <ProjectCardImageOnly
                     key={project.id}
