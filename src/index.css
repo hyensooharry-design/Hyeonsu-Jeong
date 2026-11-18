@@ -495,7 +495,7 @@ html:lang(ko) {
 }
 
 @media (max-width: 390px) {
-  .mobile-navbar .mobile-nav-row { padding-inline:1.05rem; }
+  .mobile-navbar .mobile-nav-row { padding-inline:1.25rem; }
   .mobile-home-hero .mobile-hero-photo { aspect-ratio:5/4; }
   .mobile-research-detail .mobile-detail-paper { padding-inline:.95rem; }
   #research .mobile-research-card-title { font-size:1.04rem; }
