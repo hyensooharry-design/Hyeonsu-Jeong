@@ -179,7 +179,7 @@ html:lang(ko) {
     display:block;
     width:100%;
     height:auto;
-    aspect-ratio:4/3;
+    aspect-ratio:3/4;
     border-radius:1rem;
     object-fit:cover;
     object-position:center bottom;
@@ -193,8 +193,18 @@ html:lang(ko) {
     font-weight:650; line-height:1.16; letter-spacing:-.035em;
   }
   .mobile-home-hero .mobile-hero-tagline {
-    margin-top:1.1rem; min-height:0; max-width:100%;
-    font-size:1rem; font-weight:500; line-height:1.55;
+    display:none;
+  }
+  .mobile-home-hero .mobile-hero-natural-tagline {
+    display:block;
+    margin-top:1.1rem;
+    min-height:0;
+    max-width:100%;
+    font-size:1rem;
+    font-weight:500;
+    line-height:1.6;
+    letter-spacing:-.01em;
+    text-wrap:pretty;
   }
   .mobile-home-hero .mobile-hero-description {
     margin-top:1.35rem; min-height:0; max-width:none;
@@ -216,7 +226,7 @@ html:lang(ko) {
   }
 
   /* About and Education: readable text and more spacing */
-  #about { margin-top:0; padding:0 0 3.25rem; }
+  #about { display:none; margin-top:0; padding:0 0 3.25rem; }
   #about .card { padding:0 .35rem; }
   #about .mb-8 { margin-bottom:1.1rem; }
   #about .space-y-6 { font-size:.9rem; line-height:1.83; }
@@ -343,6 +353,9 @@ html:lang(ko) {
   .mobile-research-detail .mobile-detail-paper > div:last-child article > div.grid {
     grid-template-columns:minmax(0,1fr); gap:1.8rem; padding-block:1.7rem;
   }
+  /* Keep the complete research data for desktop; simplify only the phone view. */
+  .mobile-research-detail .mobile-detail-contribution,
+  .mobile-research-detail .mobile-detail-features { display:none; }
   .mobile-research-detail article h2 { font-size:.91rem; font-weight:650; }
   .mobile-research-detail article ul { margin-top:1rem; gap:.75rem; }
   .mobile-research-detail article li span { font-size:.87rem; line-height:1.78; }
@@ -514,7 +527,7 @@ html:lang(ko) {
 
 @media (max-width: 390px) {
   .mobile-navbar .mobile-nav-row { padding-inline:1.25rem; }
-  .mobile-home-hero .mobile-hero-inline-image { aspect-ratio:5/4; }
+  .mobile-home-hero .mobile-hero-inline-image { aspect-ratio:3/4; }
   .mobile-research-detail .mobile-detail-paper { padding-inline:.95rem; }
   #research .mobile-research-card-title { font-size:1.04rem; }
 }
