@@ -50,7 +50,7 @@ function FeatureCards({
   if (!project.featureCards?.length) return null;
 
   return (
-    <section className="mobile-detail-features border-b border-slate-200 py-9">
+    <section className="border-b border-slate-200 py-9">
       <SectionHeading>Key Structure / Features</SectionHeading>
       <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {project.featureCards.map((card) => (
@@ -122,7 +122,7 @@ export default function DetailContentCard({
   return (
     <article className="min-w-0">
       <div className="grid gap-10 border-b border-slate-200 py-9 lg:grid-cols-2 lg:gap-16">
-        <section className="mobile-detail-contribution min-w-0">
+        <section className="min-w-0">
           <SectionHeading>My Contribution</SectionHeading>
           <BulletList items={project.contributions.map((item) => text(language, item))} />
         </section>
