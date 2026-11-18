@@ -135,7 +135,7 @@ export default function AwardsSection({ language }: Props) {
                 </h3>
               </div>
 
-              <div className="mt-6 grid grid-cols-1 items-start gap-6 md:grid-cols-2 lg:gap-8">
+              <div className="mt-6 grid grid-cols-1 items-start gap-6 md:grid-cols-2 xl:grid-cols-3 xl:gap-6">
                 {items.map((award) => (
                   <AwardCard
                     key={[award.date, award.title.en, award.prize.en].join("-")}
