@@ -18,8 +18,8 @@ export default function ProjectInfoCard({
   project: ResearchProjectItem;
 }) {
   return (
-    <header className="mobile-detail-header min-w-0">
-      <div className="mobile-detail-labels flex flex-wrap items-center gap-x-4 gap-y-3">
+    <header className="min-w-0">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
         <span className="text-xs font-semibold uppercase tracking-[0.12em] text-navy-700">
           {text(language, group.detailLabel)}
         </span>
@@ -31,19 +31,19 @@ export default function ProjectInfoCard({
         </span>
       </div>
 
-      <h1 className="mobile-detail-title stable-heading mt-6 max-w-5xl text-[1.95rem] font-semibold leading-[1.18] tracking-tight text-navy-900 sm:text-[2.4rem] lg:text-[2.7rem]">
+      <h1 className="stable-heading mt-6 max-w-5xl text-[1.95rem] font-semibold leading-[1.18] tracking-tight text-navy-900 sm:text-[2.4rem] lg:text-[2.7rem]">
         {text(language, project.title)}
       </h1>
 
-      <p className="mobile-detail-category stable-copy mt-4 text-sm font-medium leading-6 text-slate-500 sm:text-[0.95rem]">
+      <p className="stable-copy mt-4 text-sm font-medium leading-6 text-slate-500 sm:text-[0.95rem]">
         {text(language, project.category)}
       </p>
 
-      <p className="mobile-detail-summary stable-copy mt-6 max-w-4xl text-[0.96rem] leading-8 text-slate-700 sm:text-[1.04rem]">
+      <p className="stable-copy mt-6 max-w-4xl text-[0.96rem] leading-8 text-slate-700 sm:text-[1.04rem]">
         {text(language, project.summary)}
       </p>
 
-      <div className="mobile-detail-tags mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-slate-200 pt-5">
+      <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-slate-200 pt-5">
         {project.repoUrl ? (
           <a
             href={project.repoUrl}
