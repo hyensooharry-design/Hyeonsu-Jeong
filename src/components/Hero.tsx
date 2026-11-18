@@ -22,19 +22,19 @@ export default function Hero({ language }: Props) {
   };
 
   return (
-    <section className="mobile-home-hero mx-auto max-w-[90rem] px-5 py-12 sm:px-8 lg:px-10 lg:py-16 xl:px-12">
-      <div className="mobile-hero-surface grid items-stretch gap-10 rounded-[36px] border border-slate-200 bg-white px-5 py-6 shadow-soft sm:px-7 sm:py-8 lg:grid-cols-[1.08fr_1.22fr] lg:px-12 lg:py-8 xl:grid-cols-[1.12fr_1.2fr] xl:px-14 2xl:px-16">
-        <div className="mobile-hero-photo-wrap order-2 lg:order-1 lg:-ml-2 xl:-ml-3">
+    <section className="mx-auto max-w-[90rem] px-5 py-12 sm:px-8 lg:px-10 lg:py-16 xl:px-12">
+      <div className="grid items-stretch gap-10 rounded-[36px] border border-slate-200 bg-white px-5 py-6 shadow-soft sm:px-7 sm:py-8 lg:grid-cols-[1.08fr_1.22fr] lg:px-12 lg:py-8 xl:grid-cols-[1.12fr_1.2fr] xl:px-14 2xl:px-16">
+        <div className="order-2 lg:order-1 lg:-ml-2 xl:-ml-3">
           <img
             src="/images/KakaoTalk_20260526_225140761.jpg"
             alt="Hyeonsu Jeong profile"
-            className="mobile-hero-photo h-[26rem] w-full rounded-[28px] object-cover object-[center_36%] sm:h-[30rem] lg:h-full lg:min-h-[38rem] xl:min-h-[40rem]"
+            className="h-[26rem] w-full rounded-[28px] object-cover object-[center_36%] sm:h-[30rem] lg:h-full lg:min-h-[38rem] xl:min-h-[40rem]"
           />
         </div>
 
-        <div className="mobile-hero-content order-1 flex flex-col justify-between lg:order-2 lg:pl-6 lg:pr-1 xl:pl-10 xl:pr-2">
+        <div className="order-1 flex flex-col justify-between lg:order-2 lg:pl-6 lg:pr-1 xl:pl-10 xl:pr-2">
           <div>
-          <p className="mobile-hero-eyebrow stable-copy mb-5 min-h-6 text-sm font-bold uppercase tracking-[0.22em] text-navy-700">
+          <p className="stable-copy mb-5 min-h-6 text-sm font-bold uppercase tracking-[0.22em] text-navy-700">
             {language === "en" ? (
               <>
                 Research Intern ·
@@ -46,12 +46,12 @@ export default function Hero({ language }: Props) {
             )}
           </p>
 
-          <h1 className="mobile-hero-name stable-heading min-h-[4.5rem] text-4xl font-bold tracking-tight text-navy-900 sm:min-h-[5.5rem] sm:text-5xl lg:min-h-[6.5rem] lg:text-6xl">
+          <h1 className="stable-heading min-h-[4.5rem] text-4xl font-bold tracking-tight text-navy-900 sm:min-h-[5.5rem] sm:text-5xl lg:min-h-[6.5rem] lg:text-6xl">
             {profile.name}
           </h1>
 
           <p
-            className={`mobile-hero-tagline stable-heading mt-6 min-h-[7rem] font-medium leading-snug text-slate-800 sm:min-h-[8.5rem] ${
+            className={`stable-heading mt-6 min-h-[7rem] font-medium leading-snug text-slate-800 sm:min-h-[8.5rem] ${
               language === "en"
                 ? "max-w-none text-[1.35rem] sm:text-[1.6rem]"
                 : "max-w-[18ch] text-2xl sm:text-3xl"
@@ -72,28 +72,11 @@ export default function Hero({ language }: Props) {
             )}
           </p>
 
-          {/* Natural wrapping is used on phones; fixed desktop line breaks remain intact. */}
-          <p className="mobile-hero-natural-tagline hidden stable-heading text-slate-800">
-            {language === "en"
-              ? "Solving complex decision-making problems through optimization and data-driven methods."
-              : t.title}
-          </p>
-
-          {/* Phone-only placement; the original desktop photo remains unchanged. */}
-          <div className="mobile-hero-inline-photo hidden">
-            <img
-              src="/images/KakaoTalk_20260526_225140761.jpg"
-              alt="Hyeonsu Jeong profile"
-              loading="eager"
-              className="mobile-hero-inline-image"
-            />
-          </div>
-
-          <p className="mobile-hero-description stable-copy mt-6 min-h-[6rem] max-w-3xl text-base leading-8 text-slate-600 sm:min-h-[7rem] sm:text-lg">
+          <p className="stable-copy mt-6 min-h-[6rem] max-w-3xl text-base leading-8 text-slate-600 sm:min-h-[7rem] sm:text-lg">
             {t.description}
           </p>
 
-          <div className="mobile-hero-contact mt-6 space-y-3 text-sm text-slate-700 sm:text-base">
+          <div className="mt-6 space-y-3 text-sm text-slate-700 sm:text-base">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
               <span className="inline-flex items-center gap-2 font-semibold text-navy-900">
                 <Phone size={16} />
@@ -120,7 +103,7 @@ export default function Hero({ language }: Props) {
           </div>
           </div>
 
-          <div className="mobile-hero-actions mt-9 space-y-3">
+          <div className="mt-9 space-y-3">
             <div className="flex flex-wrap gap-3">
               <a
                 href={profile.github}
