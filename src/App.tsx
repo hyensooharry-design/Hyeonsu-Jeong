@@ -9,6 +9,7 @@ import ResearchProjects from "./components/ResearchProjectsGallery";
 import PublicationIP from "./components/PublicationIP";
 import Awards from "./components/AwardsSection";
 import Experience from "./components/Experience";
+import MobileViewToggle from "./components/MobileViewToggle";
 
 export type SectionId =
   | "home"
@@ -217,6 +218,8 @@ function App() {
           {renderSection()}
         </div>
       </main>
+
+      <MobileViewToggle />
     </div>
   );
 }
