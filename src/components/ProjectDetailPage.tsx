@@ -24,22 +24,44 @@ export default function ProjectDetailPage({
   project,
   onBack,
 }: Props) {
-  return (
-    <section className="py-20">
-      <div className="section-container">
-        <button
-          type="button"
-          onClick={onBack}
-          className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-navy-900 transition hover:border-navy-700"
-        >
-          <ArrowLeft size={16} />
-          {language === "en" ? "Back to List" : "목록으로 돌아가기"}
-        </button>
+  const hasVisuals = Boolean(
+    project.mainImage ||
+      project.visualGroups?.some((visualGroup) => visualGroup.images.length > 0)
+  );
 
-        <div className="mt-8 grid gap-8">
-          <ProjectInfoCard language={language} group={group} project={project} />
-          <ProjectImageCarousel language={language} project={project} />
-          <DetailContentCard language={language} project={project} />
+  return (
+    <section className="py-10 sm:py-14 lg:py-16">
+      <div className="section-container">
+        <div className="mx-auto max-w-6xl">
+          <button
+            type="button"
+            onClick={onBack}
+            className="inline-flex items-center gap-2 border-b border-transparent pb-1 text-sm font-medium text-slate-600 transition hover:border-navy-700 hover:text-navy-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy-700"
+          >
+            <ArrowLeft size={16} aria-hidden="true" />
+            {language === "en" ? "Back to List" : "목록으로 돌아가기"}
+          </button>
+
+          <div className="mt-10">
+            <ProjectInfoCard language={language} group={group} project={project} />
+          </div>
+
+          <div
+            className={
+              hasVisuals
+                ? "mt-12 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:items-start lg:gap-14"
+                : "mt-12 max-w-3xl"
+            }
+          >
+            <DetailContentCard language={language} project={project} part="introduction" />
+            {hasVisuals ? (
+              <ProjectImageCarousel language={language} project={project} />
+            ) : null}
+          </div>
+
+          <div className="mt-12 border-t border-slate-300 pt-3 sm:mt-16">
+            <DetailContentCard language={language} project={project} part="remaining" />
+          </div>
         </div>
       </div>
     </section>
