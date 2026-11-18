@@ -4,34 +4,36 @@ import type { LocalizedText, ResearchProjectItem } from "../data/researchProject
 
 const text = (language: Language, value: LocalizedText) => value[language];
 
-function DetailBlock({
-  title,
-  children,
-  divider = true,
-}: {
-  title: string;
-  children: ReactNode;
-  divider?: boolean;
-}) {
+function IntroBlock({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section className={divider ? "border-b border-slate-200 pb-9" : ""}>
-      <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-navy-700">
+    <section className="border-b border-slate-200 py-5 first:pt-0 last:border-b-0">
+      <h2 className="text-sm font-semibold tracking-tight text-navy-900">
         {title}
-      </h3>
-      <div className="stable-copy mt-4 text-[1rem] leading-8 text-slate-700 sm:text-[1.04rem]">
+      </h2>
+      <div className="stable-copy mt-3 text-[0.94rem] leading-7 text-slate-700 sm:text-[0.98rem]">
         {children}
       </div>
     </section>
   );
 }
 
+function SectionHeading({ children }: { children: ReactNode }) {
+  return (
+    <h2 className="text-sm font-semibold tracking-tight text-navy-900">
+      {children}
+    </h2>
+  );
+}
+
 function BulletList({ items }: { items: string[] }) {
   return (
-    <ul className="space-y-3">
+    <ul className="mt-5 space-y-3">
       {items.map((item) => (
-        <li key={item} className="flex gap-3">
-          <span className="mt-[0.72rem] h-1.5 w-1.5 shrink-0 rounded-full bg-navy-700" />
-          <span className="stable-copy flex-1">{item}</span>
+        <li key={item} className="flex items-start gap-3">
+          <span className="mt-[0.69rem] h-1.5 w-1.5 shrink-0 rounded-full bg-navy-700" />
+          <span className="stable-copy min-w-0 flex-1 text-[0.94rem] leading-7 text-slate-700">
+            {item}
+          </span>
         </li>
       ))}
     </ul>
@@ -48,23 +50,21 @@ function FeatureCards({
   if (!project.featureCards?.length) return null;
 
   return (
-    <DetailBlock title="Key Structure / Features">
-      <div className="grid gap-4 md:grid-cols-3">
+    <section className="border-b border-slate-200 py-9">
+      <SectionHeading>Key Structure / Features</SectionHeading>
+      <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {project.featureCards.map((card) => (
-          <div
-            key={card.title.en}
-            className="rounded-[20px] border border-slate-200 bg-slate-50 p-5"
-          >
-            <h4 className="text-base font-bold text-navy-900">
+          <div key={card.title.en} className="border-t border-slate-300 pt-4">
+            <h3 className="text-[0.96rem] font-semibold leading-6 text-navy-900">
               {text(language, card.title)}
-            </h4>
+            </h3>
             <p className="stable-copy mt-3 text-sm leading-7 text-slate-600">
               {text(language, card.description)}
             </p>
           </div>
         ))}
       </div>
-    </DetailBlock>
+    </section>
   );
 }
 
@@ -76,66 +76,63 @@ function InlineProcessFlow({
   project: ResearchProjectItem;
 }) {
   return (
-    <DetailBlock title="Process" divider={false}>
-      <div className="grid gap-3 lg:grid-cols-[repeat(auto-fit,minmax(0,1fr))] lg:items-stretch">
+    <section className="py-9">
+      <SectionHeading>Process</SectionHeading>
+      <ol className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(9rem,1fr))]">
         {project.flow.map((step, index) => (
-          <div
-            key={step.en}
-            className="grid items-center gap-3 lg:grid-cols-[1fr_auto]"
-          >
-            <div className="flex min-h-[6.5rem] flex-col items-center justify-center rounded-[20px] border border-slate-200 bg-slate-50 px-4 py-5 text-center">
-              <div className="text-xs font-bold leading-none text-navy-700">
-                {String(index + 1).padStart(2, "0")}
-              </div>
-              <div className="stable-copy mt-3 text-sm font-bold leading-6 text-navy-900">
-                {text(language, step)}
-              </div>
-            </div>
-            {index < project.flow.length - 1 ? (
-              <div className="flex items-center justify-center text-lg font-bold text-slate-400 lg:px-1">
-                <span className="hidden lg:inline">→</span>
-                <span className="lg:hidden">↓</span>
-              </div>
-            ) : null}
-          </div>
+          <li key={step.en} className="min-w-0 border-t border-slate-300 pt-4">
+            <span className="text-xs font-medium tracking-[0.1em] text-slate-500">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <p className="stable-copy mt-2 text-sm font-medium leading-6 text-navy-900">
+              {text(language, step)}
+            </p>
+          </li>
         ))}
-      </div>
-    </DetailBlock>
+      </ol>
+    </section>
   );
 }
 
 export default function DetailContentCard({
   language,
   project,
+  part,
 }: {
   language: Language;
   project: ResearchProjectItem;
+  part: "introduction" | "remaining";
 }) {
-  return (
-    <article className="rounded-[32px] border border-slate-200 bg-white p-6 shadow-soft sm:p-8 lg:p-12">
-      <div className="grid gap-9">
-        <DetailBlock title="Overview">
+  if (part === "introduction") {
+    return (
+      <div className="min-w-0">
+        <IntroBlock title="Overview">
           <p>{text(language, project.overview)}</p>
-        </DetailBlock>
-        <DetailBlock title="Problem">
+        </IntroBlock>
+        <IntroBlock title="Problem">
           <p>{text(language, project.problem)}</p>
-        </DetailBlock>
-        <DetailBlock title="Approach">
+        </IntroBlock>
+        <IntroBlock title="Approach">
           <p>{text(language, project.approach)}</p>
-        </DetailBlock>
-        <div className="grid gap-10 lg:grid-cols-2">
-          <DetailBlock title="My Contribution" divider={false}>
-            <BulletList
-              items={project.contributions.map((item) => text(language, item))}
-            />
-          </DetailBlock>
-          <DetailBlock title="Outputs" divider={false}>
-            <BulletList items={project.outputs.map((item) => text(language, item))} />
-          </DetailBlock>
-        </div>
-        <FeatureCards language={language} project={project} />
-        <InlineProcessFlow language={language} project={project} />
+        </IntroBlock>
       </div>
+    );
+  }
+
+  return (
+    <article className="min-w-0">
+      <div className="grid gap-10 border-b border-slate-200 py-9 lg:grid-cols-2 lg:gap-16">
+        <section className="min-w-0">
+          <SectionHeading>My Contribution</SectionHeading>
+          <BulletList items={project.contributions.map((item) => text(language, item))} />
+        </section>
+        <section className="min-w-0">
+          <SectionHeading>Outputs</SectionHeading>
+          <BulletList items={project.outputs.map((item) => text(language, item))} />
+        </section>
+      </div>
+      <FeatureCards language={language} project={project} />
+      <InlineProcessFlow language={language} project={project} />
     </article>
   );
 }
