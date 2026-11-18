@@ -72,6 +72,13 @@ export default function Hero({ language }: Props) {
             )}
           </p>
 
+          {/* Natural wrapping is used on phones; fixed desktop line breaks remain intact. */}
+          <p className="mobile-hero-natural-tagline hidden stable-heading text-slate-800">
+            {language === "en"
+              ? "Solving complex decision-making problems through optimization and data-driven methods."
+              : t.title}
+          </p>
+
           {/* Phone-only placement; the original desktop photo remains unchanged. */}
           <div className="mobile-hero-inline-photo hidden">
             <img
