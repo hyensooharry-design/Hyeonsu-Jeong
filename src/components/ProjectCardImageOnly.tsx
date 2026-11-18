@@ -31,9 +31,14 @@ export default function ProjectCardImageOnly({
 
       <div className="flex w-full min-w-0 flex-1 flex-col p-5 sm:p-6">
         <div className="flex items-center justify-between gap-3">
-          <span className="text-xs font-semibold tracking-[0.12em] text-navy-700">
-            {project.number}
-          </span>
+          <div className="flex min-w-0 flex-1 items-center gap-3">
+            <span className="shrink-0 text-xs font-semibold tracking-[0.12em] text-navy-700">
+              {project.number}
+            </span>
+            <span className="inline-flex min-w-0 max-w-full rounded-full bg-navy-50 px-3 py-1.5 text-xs font-semibold leading-5 text-navy-700">
+              {project.badge[language]}
+            </span>
+          </div>
           <ArrowUpRight
             size={19}
             className="shrink-0 text-navy-700 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
@@ -49,11 +54,6 @@ export default function ProjectCardImageOnly({
           {project.category[language]}
         </p>
 
-        <div className="mt-auto pt-5">
-          <span className="inline-flex max-w-full rounded-full bg-navy-50 px-3 py-1.5 text-xs font-semibold leading-5 text-navy-700">
-            {project.badge[language]}
-          </span>
-        </div>
       </div>
     </button>
   );
