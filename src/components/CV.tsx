@@ -15,12 +15,29 @@ type Props = {
 export default function CV({ language }: Props) {
   const cvUrl = profile.cvPdf;
   const viewerRef = useRef<HTMLDivElement | null>(null);
+  const [isDesktop, setIsDesktop] = useState(() =>
+    window.matchMedia("(min-width: 1024px)").matches
+  );
+  const [previewRequested, setPreviewRequested] = useState(false);
   const [pdf, setPdf] = useState<PDFDocumentProxy | null>(null);
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
+  const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
 
   useEffect(() => {
+    const query = window.matchMedia("(min-width: 1024px)");
+    const updateDesktop = () => setIsDesktop(query.matches);
+    query.addEventListener("change", updateDesktop);
+    return () => query.removeEventListener("change", updateDesktop);
+  }, []);
+
+  useEffect(() => {
+    // On phones, neither PDF.js nor the iframe should request the PDF on entry.
+    if (!isDesktop && !previewRequested) {
+      setStatus("idle");
+      return;
+    }
+
     let cancelled = false;
     setStatus("loading");
 
@@ -46,7 +63,7 @@ export default function CV({ language }: Props) {
       setTotalPages(0);
       loadingTask.destroy();
     };
-  }, [cvUrl]);
+  }, [cvUrl, isDesktop, previewRequested]);
 
   useEffect(() => {
     let cancelled = false;
@@ -114,6 +131,8 @@ export default function CV({ language }: Props) {
           fallback: "CV 열기",
           previous: "이전",
           next: "다음",
+          preview: "CV 미리보기",
+          previewHint: "원할 때 미리보기를 눌러 CV를 화면에서 확인할 수 있습니다.",
         }
       : {
           loading: "Loading CV.",
@@ -121,6 +140,8 @@ export default function CV({ language }: Props) {
           fallback: "Open CV",
           previous: "Previous",
           next: "Next",
+          preview: "Preview CV",
+          previewHint: "Open the preview when you're ready to view the CV here.",
         };
 
   return (
@@ -141,12 +162,27 @@ export default function CV({ language }: Props) {
         <div className="mt-7 hidden overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-sm lg:block">
           <iframe
             title="Curriculum Vitae PDF"
-            src={cvUrl}
+            src={isDesktop ? cvUrl : undefined}
             className="h-[78vh] min-h-[44rem] w-full"
           />
         </div>
 
         <div className="mt-7 space-y-6 lg:hidden">
+          {status === "idle" ? (
+            <div className="rounded-[24px] border border-slate-200 bg-white px-5 py-6 shadow-sm">
+              <p className="text-sm leading-7 text-slate-600">
+                {labels.previewHint}
+              </p>
+              <button
+                type="button"
+                onClick={() => setPreviewRequested(true)}
+                className="mt-4 inline-flex min-h-11 items-center justify-center rounded-xl bg-navy-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-700"
+              >
+                {labels.preview}
+              </button>
+            </div>
+          ) : null}
+
           {status === "loading" ? (
             <div className="rounded-[24px] border border-slate-200 bg-white px-6 py-8 text-sm font-medium text-slate-600 shadow-sm">
               {labels.loading}
