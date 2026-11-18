@@ -22,7 +22,7 @@ export default function Hero({ language }: Props) {
   };
 
   return (
-    <section className="mx-auto max-w-[90rem] px-5 py-12 sm:px-8 lg:px-10 lg:py-16 xl:px-12">
+    <section className="mobile-home-hero mx-auto max-w-[90rem] px-5 py-12 sm:px-8 lg:px-10 lg:py-16 xl:px-12">
       <div className="grid items-stretch gap-10 rounded-[36px] border border-slate-200 bg-white px-5 py-6 shadow-soft sm:px-7 sm:py-8 lg:grid-cols-[1.08fr_1.22fr] lg:px-12 lg:py-8 xl:grid-cols-[1.12fr_1.2fr] xl:px-14 2xl:px-16">
         <div className="order-2 lg:order-1 lg:-ml-2 xl:-ml-3">
           <img
