@@ -268,6 +268,7 @@ export const publications = [
 export const awards = [
   {
     date: "2026.04.30",
+    image: "/images/AWARDS/2026-gsat-young-startup-camp.webp",
     title: {
       en: "2026 GSAT Young Startup Camp Competition",
       ko: "2026 GSAT 영스타트업 캠프 경진대회",
@@ -280,6 +281,7 @@ export const awards = [
   },
   {
     date: "2026.02.05",
+    image: "/images/AWARDS/2026-rise-excellent-startup-club.webp",
     title: {
       en: "GNU RISE Shared Growth Performance Showcase, Excellent Startup Club Division",
       ko: "GNU RISE 상생 성과공유회 우수 창업동아리 부문",
@@ -292,6 +294,7 @@ export const awards = [
   },
   {
     date: "2025.12.12",
+    image: "/images/AWARDS/2025-southeast-startup-competition.webp",
     title: {
       en: "2025 Southeast Region University Student Startup Competition",
       ko: "2025 동남권 대학생 창업경진대회",
@@ -304,6 +307,7 @@ export const awards = [
   },
   {
     date: "2025.11.28",
+    image: "/images/AWARDS/2025-data-venture.webp",
     title: {
       en: "DATA VENTURE Problem-Solving Challenge",
       ko: "DATA VENTURE 문제해결 Challenge",
@@ -316,6 +320,7 @@ export const awards = [
   },
   {
     date: "2025.11.22",
+    image: "/images/AWARDS/2025-gnu-startup-hackathon.webp",
     title: {
       en: "2025 GNU Gaecheok Leaders Startup Idea Hackathon Competition",
       ko: "2025 GNU 개척리더스 창업아이디어 해커톤 경진대회",
@@ -328,6 +333,7 @@ export const awards = [
   },
   {
     date: "2025.09.27",
+    image: "/images/AWARDS/2025-gyeongnam-startup-club.webp",
     title: {
       en: "2025 Gyeongnam Region University Student Startup Club Competition",
       ko: "2025 경남권 대학생 창업동아리 경진대회",
@@ -340,6 +346,7 @@ export const awards = [
   },
   {
     date: "2025.07.11",
+    image: "/images/AWARDS/2025-gnu-startup-pioneer.webp",
     title: {
       en: "GNU-Startup Pioneer",
       ko: "GNU-Startup Pioneer",
@@ -352,6 +359,7 @@ export const awards = [
   },
   {
     date: "2025.06.25",
+    image: "/images/AWARDS/2025-convergence-data-ministerial.webp",
     title: {
       en: "2025 Convergence Data Utilization Startup Competition",
       ko: "2025 융복합 데이터 활용 창업 경진대회 공모전",
@@ -364,6 +372,7 @@ export const awards = [
   },
   {
     date: "2025.06.25",
+    image: "/images/AWARDS/2025-convergence-data-encouragement.webp",
     title: {
       en: "2025 Convergence Data Utilization Startup Competition",
       ko: "2025 융복합 데이터 활용 창업 경진대회 공모전",
@@ -376,6 +385,7 @@ export const awards = [
   },
   {
     date: "2025.05.28",
+    image: "/images/AWARDS/2025-gnu-ideathon.webp",
     title: {
       en: "2025 GNU Gaecheok Leaders Startup Ideathon Competition",
       ko: "2025 GNU 개척리더스 창업 아이디어톤 경진대회",
@@ -388,6 +398,7 @@ export const awards = [
   },
   {
     date: "2025.01.24",
+    image: "/images/AWARDS/2025-ict-generative-ai.webp",
     title: {
       en: "Convergence ICT Utilization Competition (Generative AI Division)",
       ko: "융복합 ICT 활용 공모전(생성형 AI 분야)",
@@ -400,6 +411,7 @@ export const awards = [
   },
   {
     date: "2025.01.22",
+    image: "/images/AWARDS/2025-tableau.webp",
     title: {
       en: "Winter Big Data Tableau Competition",
       ko: "동계방학 빅데이터 Tableau 경진대회",
@@ -412,6 +424,7 @@ export const awards = [
   },
   {
     date: "2024.12.21",
+    image: "/images/AWARDS/2024-aws-rocket-pitch.webp",
     title: {
       en: "AWS GenAI Schumpeter Rocket Pitch",
       ko: "AWS GenAI Schumpeter 로켓피치",
@@ -424,6 +437,7 @@ export const awards = [
   },
   {
     date: "2024.12.21",
+    image: "/images/AWARDS/2024-aws-hackathon.webp",
     title: {
       en: "AWS GenAI Schumpeter Hackathon",
       ko: "AWS GenAI Schumpeter 해커톤",
@@ -436,6 +450,7 @@ export const awards = [
   },
   {
     date: "2024.12.13",
+    image: "/images/AWARDS/2024-3d-printing.webp",
     title: {
       en: "2024 Creative Convergence 3D Printing Idea Competition",
       ko: "2024 창의융합 3D 프린팅 아이디어 경진대회",
@@ -448,6 +463,7 @@ export const awards = [
   },
   {
     date: "2024.09.20",
+    image: "/images/AWARDS/2024-student-project.webp",
     title: {
       en: "National University Fostering Project Student Project Competition",
       ko: "국립대학육성사업 대학생 프로젝트 경진대회",
