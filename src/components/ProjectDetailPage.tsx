@@ -30,7 +30,7 @@ export default function ProjectDetailPage({
   );
 
   return (
-    <section className="py-10 sm:py-14 lg:py-16">
+    <section className="mobile-research-detail py-10 sm:py-14 lg:py-16">
       <div className="section-container">
         <div className="mx-auto max-w-6xl">
           <button
@@ -42,14 +42,14 @@ export default function ProjectDetailPage({
             {language === "en" ? "Back to List" : "목록으로 돌아가기"}
           </button>
 
-          <div className="mt-8 rounded-[30px] border border-slate-200 bg-white px-5 py-8 shadow-sm sm:px-8 sm:py-10 lg:px-12 lg:py-12">
+          <div className="mobile-detail-paper mt-8 rounded-[30px] border border-slate-200 bg-white px-5 py-8 shadow-sm sm:px-8 sm:py-10 lg:px-12 lg:py-12">
             <ProjectInfoCard language={language} group={group} project={project} />
 
           <div
             className={
               hasVisuals
-                ? "mt-12 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:items-start lg:gap-14"
-                : "mt-12 max-w-3xl"
+                ? "mobile-detail-leading mt-12 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:items-start lg:gap-14"
+                : "mobile-detail-leading mt-12 max-w-3xl"
             }
           >
             <DetailContentCard language={language} project={project} part="introduction" />
