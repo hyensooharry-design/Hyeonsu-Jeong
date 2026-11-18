@@ -58,11 +58,11 @@ export default function Navbar({
 
   return (
     <header className="mobile-navbar sticky top-0 z-50 border-b border-slate-200 bg-[#f6f8fb]/95 backdrop-blur">
-      <nav className="section-container flex min-h-14 items-center justify-between gap-3 py-3">
+      <nav className="mobile-nav-row section-container flex min-h-14 items-center justify-between gap-3 py-3">
         <button
           type="button"
           onClick={() => onNavigateSection("home")}
-          className="text-left text-sm font-semibold uppercase tracking-[0.12em] text-navy-900"
+          className="mobile-nav-brand text-left text-sm font-semibold uppercase tracking-[0.12em] text-navy-900"
         >
           {profile.name}
         </button>
@@ -94,17 +94,32 @@ export default function Navbar({
 
         <button
           type="button"
-          className="lg:hidden"
+          className="mobile-nav-toggle lg:hidden"
           onClick={() => setOpen((prev) => !prev)}
           aria-label="Toggle menu"
+          aria-expanded={open}
         >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
 
       {open && (
-        <div className="border-t border-slate-200 bg-[#f6f8fb] lg:hidden">
-          <div className="section-container flex flex-col gap-4 py-5">
+        <div className="mobile-menu-panel border-t border-slate-200 bg-[#f6f8fb] lg:hidden">
+          <div className="mobile-menu-links section-container flex flex-col gap-4 py-5">
+            <button
+              type="button"
+              onClick={() => {
+                onNavigateSection("home");
+                setOpen(false);
+              }}
+              className={`mobile-menu-link rounded-xl px-4 py-3 text-left text-sm ${
+                activeSection === "home"
+                  ? "bg-white font-semibold text-navy-900"
+                  : "font-medium text-slate-700"
+              }`}
+            >
+              {language === "ko" ? "홈" : "Home"}
+            </button>
             {sectionItems.map((item) => (
               <button
                 type="button"
@@ -113,7 +128,7 @@ export default function Navbar({
                   onNavigateSection(item.id);
                   setOpen(false);
                 }}
-                className={`rounded-xl px-4 py-3 text-left text-sm ${
+                className={`mobile-menu-link rounded-xl px-4 py-3 text-left text-sm ${
                   activeSection === item.id
                     ? "bg-white font-semibold text-navy-900"
                     : "font-medium text-slate-700"
@@ -126,7 +141,7 @@ export default function Navbar({
             <button
               type="button"
               onClick={toggleLanguage}
-              className="w-fit rounded-full border border-slate-300 bg-[#f9fbfd] px-4 py-2 text-xs font-semibold text-navy-700"
+              className="mobile-menu-language w-fit rounded-full border border-slate-300 bg-[#f9fbfd] px-4 py-2 text-xs font-semibold text-navy-700"
             >
               {language === "en" ? "Switch to Korean" : "Switch to English"}
             </button>
