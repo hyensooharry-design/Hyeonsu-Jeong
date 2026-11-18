@@ -45,8 +45,8 @@ function AwardCard({ award, language }: { award: AwardItem; language: Language }
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <article className="flex min-w-0 flex-col overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-soft transition duration-200 hover:border-slate-300 hover:shadow-lg">
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
+    <article className="flex min-w-0 w-full flex-col self-start overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-soft transition duration-200 hover:border-slate-300 hover:shadow-lg">
+      <div className="flex flex-col p-5 sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
           <span className="text-xs font-bold tracking-[0.08em] text-slate-500">
             {award.date}
@@ -64,7 +64,7 @@ function AwardCard({ award, language }: { award: AwardItem; language: Language }
           {award.issuer[language]}
         </p>
 
-        <div className="mt-auto pt-6">
+        <div className="pt-6">
           <button
             type="button"
             onClick={() => setExpanded((current) => !current)}
@@ -135,7 +135,7 @@ export default function AwardsSection({ language }: Props) {
                 </h3>
               </div>
 
-              <div className="mt-6 grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:gap-8">
+              <div className="mt-6 grid grid-cols-1 items-start gap-6 md:grid-cols-2 lg:gap-8">
                 {items.map((award) => (
                   <AwardCard
                     key={[award.date, award.title.en, award.prize.en].join("-")}
