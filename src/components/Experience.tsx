@@ -128,35 +128,41 @@ export default function Experience({ language }: Props) {
   };
 
   return (
-    <section id="experience" className="py-16 sm:py-20">
+    <section id="experience" className="py-24">
       <div className="section-container">
         <div className="max-w-3xl">
           <h2 className="section-title">{label.title}</h2>
         </div>
 
-        <div className="mt-8 border-t border-slate-300">
-          {experiences.map((experience) => (
+        <div className="mt-12 border-t-[1.5px] border-slate-300">
+          {experiences.map((experience, index) => (
             <article
               key={experience.organization}
-              className="grid gap-4 border-b border-slate-200 py-7 md:grid-cols-[12rem_minmax(0,1fr)] md:gap-10"
+              className={`grid gap-6 py-6 md:grid-cols-[0.42fr_1fr] ${
+                index !== experiences.length - 1
+                  ? "border-b-[1.5px] border-slate-300"
+                  : ""
+              }`}
             >
-              <div className="flex items-center gap-3 md:flex-col md:items-start">
-                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/80 text-navy-700 ring-1 ring-slate-200">
+              <div className="space-y-4">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-navy-50 text-navy-700">
                   {getExperienceIcon(experience.organization)}
-                </span>
-                <span className="text-xs font-medium leading-6 text-slate-500 sm:text-sm">
+                </div>
+                <div className="text-sm font-bold text-navy-700">
                   {experience.period}
-                </span>
+                </div>
               </div>
 
-              <div className="min-w-0">
-                <h3 className="stable-heading text-lg font-semibold leading-snug text-navy-900 sm:text-xl">
+              <div>
+                <h3 className="stable-heading text-xl font-bold text-navy-900">
                   {experience.organization}
                 </h3>
-                <p className="stable-copy mt-2 text-sm font-medium text-navy-700">
+
+                <p className="stable-copy mt-1 text-sm font-semibold text-navy-700">
                   {experience.role[language]}
                 </p>
-                <p className="stable-copy mt-3 max-w-3xl text-sm leading-7 text-slate-600 sm:text-[0.96rem]">
+
+                <p className="stable-copy mt-4 text-sm leading-7 text-slate-600">
                   {experience.description[language]}
                 </p>
               </div>
@@ -164,24 +170,31 @@ export default function Experience({ language }: Props) {
           ))}
         </div>
 
-        <section className="mt-14 sm:mt-16">
-          <h3 className="text-lg font-semibold tracking-tight text-navy-900">
-            {language === "en" ? "Activities" : "활동"}
-          </h3>
-          <div className="mt-5 border-t border-slate-300">
+        <section className="mt-16">
+          <div className="border-t-[1.5px] border-slate-300 pt-4">
+            <h3 className="text-base font-bold uppercase tracking-[0.12em] text-navy-900">
+              {language === "en" ? "Activities" : "활동"}
+            </h3>
+          </div>
+
+          <div className="mt-3 border-t-[1.5px] border-slate-300">
             {activities[language].map((activity) => (
               <article
                 key={`${activity.period}-${activity.title}`}
-                className="grid gap-2 border-b border-slate-200 py-5 md:grid-cols-[12rem_minmax(0,1fr)] md:gap-10"
+                className="grid gap-2 border-b-[1.5px] border-slate-300 py-4 md:grid-cols-[12.5rem_minmax(0,1fr)_15rem] md:gap-6"
               >
-                <span className="text-sm font-medium leading-6 text-slate-500">
+                <div className="text-sm font-bold text-navy-700">
                   {activity.period}
-                </span>
-                <div className="min-w-0">
-                  <h4 className="stable-heading text-[0.96rem] font-semibold leading-6 text-navy-900">
+                </div>
+
+                <div>
+                  <h4 className="stable-copy text-sm font-bold leading-6 text-slate-900 sm:text-base">
                     {activity.title}
                   </h4>
-                  <p className="stable-copy mt-1.5 text-sm leading-6 text-slate-600">
+                </div>
+
+                <div className="md:text-right">
+                  <p className="stable-copy text-sm leading-6 text-slate-600">
                     {activity.organization}
                   </p>
                 </div>
@@ -190,24 +203,31 @@ export default function Experience({ language }: Props) {
           </div>
         </section>
 
-        <section className="mt-14 sm:mt-16">
-          <h3 className="text-lg font-semibold tracking-tight text-navy-900">
-            {language === "en" ? "Certifications" : "자격증"}
-          </h3>
-          <div className="mt-5 border-t border-slate-300">
+        <section className="mt-16">
+          <div className="border-t-[1.5px] border-slate-300 pt-4">
+            <h3 className="text-base font-bold uppercase tracking-[0.12em] text-navy-900">
+              {language === "en" ? "Certifications" : "자격증"}
+            </h3>
+          </div>
+
+          <div className="mt-3 border-t-[1.5px] border-slate-300">
             {certifications[language].map((certificate) => (
               <article
                 key={`${certificate.name}-${certificate.grade}`}
-                className="grid gap-2 border-b border-slate-200 py-5 md:grid-cols-[12rem_minmax(0,1fr)] md:gap-10"
+                className="grid gap-2 border-b-[1.5px] border-slate-300 py-4 md:grid-cols-[12.5rem_minmax(0,1fr)_15rem] md:gap-6"
               >
-                <span className="text-sm font-medium leading-6 text-slate-500">
-                  {certificate.grade}
-                </span>
-                <div className="min-w-0">
-                  <h4 className="stable-heading text-[0.96rem] font-semibold leading-6 text-navy-900">
+                <div>
+                  <h4 className="stable-copy text-sm font-bold leading-6 text-slate-900 sm:text-base">
                     {certificate.name}
                   </h4>
-                  <p className="stable-copy mt-1.5 text-sm leading-6 text-slate-600">
+                </div>
+
+                <div className="text-sm font-semibold text-navy-700 md:text-left">
+                  {certificate.grade}
+                </div>
+
+                <div className="md:text-right">
+                  <p className="stable-copy text-sm leading-6 text-slate-600">
                     {certificate.issuer}
                   </p>
                 </div>
