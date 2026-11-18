@@ -1,3 +1,4 @@
+import { ExternalLink } from "lucide-react";
 import type { Language } from "../data/portfolioData";
 import { publications, sectionLabels } from "../data/portfolioData";
 
@@ -90,6 +91,19 @@ export default function PublicationsIP({ language }: Props) {
                       <p className="mt-2 text-sm leading-7 text-slate-600">
                         {item.meta[language]}
                       </p>
+
+                      {"url" in item && item.url ? (
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-navy-900 underline decoration-slate-300 underline-offset-4 transition hover:text-navy-700 hover:decoration-navy-700"
+                          aria-label={`${item.title} — ${language === "ko" ? "원문 보기" : "View publication"}`}
+                        >
+                          {language === "ko" ? "원문 보기" : "View publication"}
+                          <ExternalLink size={15} aria-hidden="true" />
+                        </a>
+                      ) : null}
                     </div>
                   </article>
                 ))}
