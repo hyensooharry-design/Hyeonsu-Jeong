@@ -29,26 +29,26 @@ export default function Education({ language }: Props) {
         };
 
   return (
-    <section id="education" className="pb-16 lg:pb-20">
+    <section id="education" className="pb-24">
       <div className="section-container">
-        <div>
+        <div className="mx-auto max-w-[90rem]">
           <h2 className="section-title">{t.title}</h2>
 
-          <div className="mt-7 border-t border-slate-300">
-            <article className="grid gap-3 border-b border-slate-200 py-6 sm:py-7 md:grid-cols-[12rem_minmax(0,1fr)] md:gap-10">
-              <div className="text-sm font-medium text-slate-500">{t.period}</div>
+          <div className="mt-8 border-t-[1.5px] border-slate-300">
+            <article className="grid gap-5 border-b-[1.5px] border-slate-300 py-6 md:grid-cols-[12rem_1fr] md:gap-8">
+              <div className="text-sm font-bold text-navy-700">{t.period}</div>
               <div>
-                <h3 className="stable-heading text-lg font-semibold text-navy-900 sm:text-xl">{t.university}</h3>
-                <p className="mt-2 text-sm font-medium text-slate-700">{t.degree}</p>
+                <h3 className="text-xl font-bold text-navy-900">{t.university}</h3>
+                <p className="mt-2 text-sm font-semibold text-slate-800">{t.degree}</p>
                 <p className="mt-1 text-sm leading-7 text-slate-600">{t.doubleMajor}</p>
               </div>
             </article>
 
-            <article className="grid gap-3 border-b border-slate-200 py-6 sm:py-7 md:grid-cols-[12rem_minmax(0,1fr)] md:gap-10">
-              <div className="text-sm font-medium text-slate-500">{t.microPeriod}</div>
+            <article className="grid gap-5 border-b-[1.5px] border-slate-300 py-6 md:grid-cols-[12rem_1fr] md:gap-8">
+              <div className="text-sm font-bold text-navy-700">{t.microPeriod}</div>
               <div>
-                <p className="text-xs font-medium uppercase tracking-[0.1em] text-slate-500">{t.program}</p>
-                <h3 className="stable-heading mt-2 text-lg font-semibold text-navy-900">{t.microDegree}</h3>
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500">{t.program}</p>
+                <h3 className="mt-2 text-lg font-bold text-navy-900">{t.microDegree}</h3>
                 <p className="mt-1 text-sm leading-7 text-slate-600">{t.university}</p>
               </div>
             </article>
