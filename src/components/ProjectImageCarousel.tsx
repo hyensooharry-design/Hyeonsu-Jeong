@@ -235,23 +235,23 @@ export default function ProjectImageCarousel({
       : activeImage.fit;
 
   return (
-    <article className="rounded-[34px] border border-slate-200 bg-white p-5 shadow-soft sm:p-7 lg:p-8">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-navy-700">
+    <figure className="min-w-0 lg:pt-1">
+      <div className="flex items-center justify-between gap-3">
+        <h2 className="text-xs font-semibold tracking-[0.08em] text-slate-600">
           Project Visuals
-        </h3>
-        <div className="text-sm font-bold text-slate-500">
+        </h2>
+        <span className="text-xs font-medium tabular-nums text-slate-500">
           {activeIndex + 1} / {images.length}
-        </div>
+        </span>
       </div>
 
-      <div className="relative mt-5">
+      <div className="relative mt-4">
         <ProjectImageFrame
           src={activeImage.src}
           alt={text(language, activeImage.label)}
           fit={displayFit}
           variant="carousel"
-          className="h-[18rem] sm:h-[28rem] lg:h-[36rem]"
+          className="h-64 border border-slate-200 sm:h-80 lg:h-[23rem] xl:h-[25rem]"
           imageClassName={displayFit === "cover" ? "" : "p-3"}
         />
 
@@ -261,44 +261,45 @@ export default function ProjectImageCarousel({
               type="button"
               aria-label="Previous image"
               onClick={() => move(-1)}
-              className="absolute left-3 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-navy-900 shadow-sm transition hover:border-navy-700"
+              className="absolute left-3 top-1/2 inline-flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-navy-900 shadow-sm transition hover:border-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-700"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={18} aria-hidden="true" />
             </button>
             <button
               type="button"
               aria-label="Next image"
               onClick={() => move(1)}
-              className="absolute right-3 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-navy-900 shadow-sm transition hover:border-navy-700"
+              className="absolute right-3 top-1/2 inline-flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-navy-900 shadow-sm transition hover:border-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-700"
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={18} aria-hidden="true" />
             </button>
           </>
         ) : null}
       </div>
 
-      <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="stable-copy text-sm leading-7 text-slate-600">
+      <figcaption className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <p className="stable-copy text-xs leading-6 text-slate-500 sm:text-sm">
           {text(language, activeImage.caption)}
         </p>
         {hasControls ? (
-          <div className="flex shrink-0 gap-2">
+          <div className="flex shrink-0 items-center gap-2" aria-label="Select project image">
             {images.map((image, index) => (
               <button
                 key={image.src}
                 type="button"
                 aria-label={`Go to image ${index + 1}`}
+                aria-current={index === activeIndex ? "true" : undefined}
                 onClick={() => setActiveIndex(index)}
                 className={`h-2 rounded-full transition ${
                   index === activeIndex
-                    ? "w-7 bg-navy-700"
+                    ? "w-6 bg-navy-700"
                     : "w-2 bg-slate-300 hover:bg-slate-400"
                 }`}
               />
             ))}
           </div>
         ) : null}
-      </div>
-    </article>
+      </figcaption>
+    </figure>
   );
 }
