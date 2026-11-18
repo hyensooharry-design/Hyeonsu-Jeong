@@ -53,17 +53,6 @@ export default function ProjectCardImageOnly({
           <span className="inline-flex max-w-full rounded-full bg-navy-50 px-3 py-1.5 text-xs font-semibold leading-5 text-navy-700">
             {project.badge[language]}
           </span>
-
-          <div className="mt-4 flex flex-wrap gap-2">
-            {project.tags.map((item) => (
-              <span
-                key={item.en}
-                className="stable-copy rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold leading-5 text-slate-700"
-              >
-                {item[language]}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
     </button>
