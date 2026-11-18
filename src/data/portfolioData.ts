@@ -245,7 +245,7 @@ export const publications = [
     },
   },
   {
-    category: { en: "Conference", ko: "학술 발표" },
+    category: { en: "Poster", ko: "포스터 발표" },
     title: "Optimization of Resolution of 3D Digital Maps in Industrial Sites Based on Work Area Importance Derived from Terrain Information",
     titleKo: "지형정보 기반 작업구역 중요도에 따른 산업현장 3D 디지털 맵의 해상도 최적화",
     url: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12935391",
