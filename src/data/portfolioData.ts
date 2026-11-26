@@ -223,6 +223,7 @@ export const publications = [
   {
     category: { en: "Patent", ko: "특허" },
     title: "Method for Searching Optimal CCTV Camera Installation Locations for Construction Site Monitoring",
+    evidenceImage: "/images/EVIDENCE/patent-cctv-10-2026-0073586.webp",
     meta: {
       en: "Patent Filed · Application No. 10-2026-0073586 · First Inventor / Primary Contributor",
       ko: "특허 출원 · 출원번호 10-2026-0073586 · 제1발명자",
@@ -230,7 +231,18 @@ export const publications = [
   },
   {
     category: { en: "Software Copyright", ko: "소프트웨어 등록" },
+    title: "Graph-RAG-Based Decision Support System for Industrial Safety Law Analysis",
+    titleKo: "그래프 기반 검색 증강 생성 기술 기반 산업안전 법령 분석 및 의사결정 지원 시스템",
+    evidenceImage: "/images/EVIDENCE/software-graph-rag-c-2026-063920.webp",
+    meta: {
+      en: "First-listed Author · Joint Software Copyright · Registration No. C-2026-063920 · Registered November 26, 2026",
+      ko: "제1저작자(공동저작) · 프로그램 저작권 등록 · 등록번호 C-2026-063920 · 등록일 2026.11.26",
+    },
+  },
+  {
+    category: { en: "Software Copyright", ko: "소프트웨어 등록" },
     title: "Color Matching Program for Realistic Representation of Industrial 3D Point Clouds",
+    evidenceImage: "/images/EVIDENCE/software-pointcloud-c-2025-035569.webp",
     meta: {
       en: "Software Copyright Registered · Registration No. C-2025-035569 · Co-author",
       ko: "소프트웨어 등록 · 등록번호 C-2025-035569 · 공동저작자",
@@ -556,6 +568,7 @@ export const experiences = [
       ko: "글로벌 엔지니어링 연구 프로그램 참가",
     },
     period: "2026.06 - 2026.07",
+    evidenceImage: "/images/EVIDENCE/experience-purdue-certificate.webp",
     description: {
       en: "Participated in a research program at the Edwardson School of Industrial Engineering, Purdue University, Indiana, USA.",
       ko: "미국 인디애나 Purdue University Edwardson School of Industrial Engineering에서 글로벌 엔지니어링 연구 프로그램에 참여했습니다.",
@@ -604,6 +617,7 @@ export const experiences = [
       ko: "학생 연구원 / 개발자",
     },
     period: "2025.12 - 2026.01",
+    evidenceImage: "/images/EVIDENCE/experience-fpt-certificate.webp",
     description: {
       en: "Built a vector-based face recognition attendance system using OpenCV, Streamlit, database design, and API server integration.",
       ko: "OpenCV, Streamlit, 데이터베이스 설계, API 서버 연동을 활용해 벡터 기반 얼굴 인식 출결 시스템을 구축했습니다.",

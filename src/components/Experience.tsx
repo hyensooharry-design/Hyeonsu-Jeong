@@ -1,6 +1,7 @@
 import {
   Briefcase,
   Database,
+  ExternalLink,
   Globe,
   Lightbulb,
   Shield,
@@ -165,6 +166,19 @@ export default function Experience({ language }: Props) {
                 <p className="stable-copy mt-4 text-sm leading-7 text-slate-600">
                   {experience.description[language]}
                 </p>
+
+                {"evidenceImage" in experience && experience.evidenceImage ? (
+                  <a
+                    href={experience.evidenceImage}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-[#f9fbfd] px-4 py-2.5 text-sm font-semibold text-navy-900 transition-colors duration-200 hover:border-slate-400 hover:bg-[#f9fbfd] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-900"
+                    aria-label={language === "ko" ? "참여 증명서 이미지 보기" : "View experience certificate image"}
+                  >
+                    {language === "ko" ? "증명서 보기" : "View certificate"}
+                    <ExternalLink size={15} aria-hidden="true" />
+                  </a>
+                ) : null}
               </div>
             </article>
           ))}
