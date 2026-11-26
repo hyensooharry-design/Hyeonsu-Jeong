@@ -25,8 +25,10 @@ export default function EvidenceDisclosure({
     language === "ko"
       ? isCertificate ? "증명서 접기" : "증빙 이미지 접기"
       : isCertificate ? "Hide certificate" : "Hide supporting document";
-  const openText = label ? (language === "ko" ? `${label} 보기` : `View ${label}`) : labelOpen;
-  const closeText = label ? (language === "ko" ? `${label} 접기` : `Hide ${label}`) : labelClose;
+  // All Experience certification controls use a single label in both languages.
+  // The chevron and native <details> state communicate expansion and collapse.
+  const openText = isCertificate ? "View Certification" : label ? (language === "ko" ? `${label} 보기` : `View ${label}`) : labelOpen;
+  const closeText = isCertificate ? "View Certification" : label ? (language === "ko" ? `${label} 접기` : `Hide ${label}`) : labelClose;
 
   return (
     <details className="group mt-4">

@@ -183,7 +183,7 @@ export default function Experience({ language }: Props) {
                         src={proof.src}
                         alt={proof.label[language]}
                         language={language}
-                        label={proof.label[language]}
+                        kind="certificate"
                       />
                     ))
                   : null}
