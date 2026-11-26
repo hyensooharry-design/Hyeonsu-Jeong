@@ -1,4 +1,5 @@
 import { ExternalLink } from "lucide-react";
+import EvidenceDisclosure from "./EvidenceDisclosure";
 import type { Language } from "../data/portfolioData";
 import { publications, sectionLabels } from "../data/portfolioData";
 
@@ -120,16 +121,11 @@ export default function PublicationsIP({ language }: Props) {
                           ) : null}
 
                           {"evidenceImage" in item && item.evidenceImage ? (
-                            <a
-                              href={item.evidenceImage}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="mt-4 inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-[#f9fbfd] px-4 py-2.5 text-sm font-semibold text-navy-900 transition-colors duration-200 hover:border-slate-400 hover:bg-[#f9fbfd] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-900"
-                              aria-label={language === "ko" ? "증빙 이미지 보기" : "View supporting document image"}
-                            >
-                              {language === "ko" ? "증빙 이미지 보기" : "View supporting document"}
-                              <ExternalLink size={15} aria-hidden="true" />
-                            </a>
+                            <EvidenceDisclosure
+                              src={item.evidenceImage}
+                              alt={language === "ko" && "titleKo" in item ? item.titleKo : item.title}
+                              language={language}
+                            />
                           ) : null}
                         </article>
                       ))}
