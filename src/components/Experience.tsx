@@ -175,6 +175,18 @@ export default function Experience({ language }: Props) {
                     kind="certificate"
                   />
                 ) : null}
+
+                {"evidenceImages" in experience && experience.evidenceImages
+                  ? experience.evidenceImages.map((proof) => (
+                      <EvidenceDisclosure
+                        key={proof.src}
+                        src={proof.src}
+                        alt={proof.label[language]}
+                        language={language}
+                        label={proof.label[language]}
+                      />
+                    ))
+                  : null}
               </div>
             </article>
           ))}

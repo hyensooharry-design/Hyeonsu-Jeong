@@ -581,6 +581,15 @@ export const experiences = [
       ko: "창업자 / 대표",
     },
     period: "2025.05 - Present",
+    evidenceImages: [
+      {
+        src: "/images/EVIDENCE/software-graph-rag-c-2026-063920.webp",
+        label: {
+          en: "Graph-RAG software registration",
+          ko: "Graph-RAG SW 등록증",
+        },
+      },
+    ],
     description: {
       en: "Founded and led Workrithm, developing WORK-FIT, an industrial safety management platform that combines Graph-RAG-based legal decision support, smartwatch-based worker monitoring, automated safety checklists, and field safety dashboards.",
       ko: "Workrithm을 창업하고 WORK-FIT을 개발하며, Graph-RAG 기반 법령 의사결정 지원, 스마트워치 기반 작업자 모니터링, 자동 안전 체크리스트, 현장 안전 대시보드를 결합한 산업안전관리 플랫폼을 이끌고 있습니다.",
@@ -605,6 +614,22 @@ export const experiences = [
       ko: "학부 연구생",
     },
     period: "2025.06 - 2026.02",
+    evidenceImages: [
+      {
+        src: "/images/EVIDENCE/patent-cctv-10-2026-0073586.webp",
+        label: {
+          en: "CCTV patent application",
+          ko: "CCTV 특허 출원증",
+        },
+      },
+      {
+        src: "/images/EVIDENCE/software-pointcloud-c-2025-035569.webp",
+        label: {
+          en: "3D point-cloud software registration",
+          ko: "3D 포인트클라우드 SW 등록증",
+        },
+      },
+    ],
     description: {
       en: "Developed sensor placement optimization models for visual monitoring and digital twin-related research projects.",
       ko: "시각 모니터링과 디지털트윈 관련 연구과제에서 센서 배치 최적화 모델을 개발했습니다.",
