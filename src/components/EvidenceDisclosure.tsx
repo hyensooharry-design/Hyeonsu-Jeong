@@ -45,21 +45,8 @@ export default function EvidenceDisclosure({
       </summary>
       {secondaryImage ? (
         <div className="mt-4 grid w-full max-w-[48rem] grid-cols-2 items-start gap-3">
-          {[
-            {
-              src,
-              alt,
-              caption: language === "ko" ? "특허 출원증" : "Patent Application",
-            },
-            {
-              ...secondaryImage,
-              caption: language === "ko" ? "기술이전 계약서" : "Technology Transfer Agreement",
-            },
-          ].map((document) => (
+          {[{ src, alt }, secondaryImage].map((document) => (
             <figure key={document.src} className="min-w-0 overflow-hidden rounded-xl border border-slate-200 bg-white p-2 shadow-sm">
-              <figcaption className="px-1 pb-2 text-center text-sm font-semibold text-slate-700">
-                {document.caption}
-              </figcaption>
               <img
                 src={document.src}
                 alt={document.alt}

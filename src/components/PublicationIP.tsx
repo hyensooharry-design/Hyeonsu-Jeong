@@ -103,9 +103,16 @@ export default function PublicationsIP({ language }: Props) {
                             {language === "ko" && "titleKo" in item ? item.titleKo : item.title}
                           </h4>
 
-                          <p className="mt-2 text-sm leading-7 text-slate-600">
-                            {item.meta[language]}
-                          </p>
+                          <div className="mt-2 flex items-center justify-between gap-4">
+                            <p className="min-w-0 text-sm leading-7 text-slate-600">
+                              {item.meta[language]}
+                            </p>
+                            {"technologyTransferImage" in item && item.technologyTransferImage ? (
+                              <span className="ml-auto inline-flex shrink-0 items-center rounded-full border border-slate-200 bg-navy-50 px-3 py-1 text-xs font-semibold text-navy-700">
+                                {language === "ko" ? "기술이전 완료" : "Technology Transfer Completed"}
+                              </span>
+                            ) : null}
+                          </div>
 
                           {"url" in item && item.url ? (
                             <a
