@@ -123,7 +123,7 @@ export default function PublicationsIP({ language }: Props) {
                           {"evidenceImage" in item && item.evidenceImage ? (
                             <EvidenceDisclosure
                               src={item.evidenceImage}
-                              alt={language === "ko" && "titleKo" in item ? item.titleKo : item.title}
+                              alt={language === "ko" && "titleKo" in item && item.titleKo ? item.titleKo : item.title}
                               language={language}
                             />
                           ) : null}
