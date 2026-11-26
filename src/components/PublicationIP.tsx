@@ -108,7 +108,7 @@ export default function PublicationsIP({ language }: Props) {
                               {item.meta[language]}
                             </p>
                             {"technologyTransferImage" in item && item.technologyTransferImage ? (
-                              <span className="ml-auto inline-flex shrink-0 items-center rounded-full border border-slate-200 bg-navy-50 px-3 py-1 text-xs font-semibold text-navy-700">
+                              <span className="ml-auto inline-flex shrink-0 items-center rounded-full border border-slate-200 bg-sky-100 px-3 py-1 text-xs font-semibold text-navy-700">
                                 {language === "ko" ? "기술이전 완료" : "Technology Transfer Completed"}
                               </span>
                             ) : null}
