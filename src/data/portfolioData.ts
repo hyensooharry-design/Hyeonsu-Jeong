@@ -556,6 +556,15 @@ export const experiences = [
       ko: "연구 인턴",
     },
     period: "2026.08 - Present",
+    evidenceImages: [
+      {
+        src: "/images/EVIDENCE/experience-yonsei-employment-certificate.webp",
+        label: {
+          en: "Yonsei University research experience certificate",
+          ko: "연세대학교 경력증명서",
+        },
+      },
+    ],
     description: {
       en: "Participating in transportation and logistics optimization research at Yonsei University.",
       ko: "연세대학교 Transportation & Logistics Optimization Lab에서 교통 및 물류 최적화 연구에 참여하고 있습니다.",
@@ -583,10 +592,10 @@ export const experiences = [
     period: "2025.05 - Present",
     evidenceImages: [
       {
-        src: "/images/EVIDENCE/software-graph-rag-c-2026-063920.webp",
+        src: "/images/EVIDENCE/experience-workrithm-grant-selection.webp",
         label: {
-          en: "Graph-RAG software registration",
-          ko: "Graph-RAG SW 등록증",
+          en: "Government startup program selection certificate",
+          ko: "정부지원사업 선정확인서",
         },
       },
     ],
@@ -616,17 +625,10 @@ export const experiences = [
     period: "2025.06 - 2026.02",
     evidenceImages: [
       {
-        src: "/images/EVIDENCE/patent-cctv-10-2026-0073586.webp",
+        src: "/images/EVIDENCE/experience-gnu-employment-certificate.webp",
         label: {
-          en: "CCTV patent application",
-          ko: "CCTV 특허 출원증",
-        },
-      },
-      {
-        src: "/images/EVIDENCE/software-pointcloud-c-2025-035569.webp",
-        label: {
-          en: "3D point-cloud software registration",
-          ko: "3D 포인트클라우드 SW 등록증",
+          en: "Gyeongsang National University research experience certificate",
+          ko: "경상국립대학교 경력증명서",
         },
       },
     ],
