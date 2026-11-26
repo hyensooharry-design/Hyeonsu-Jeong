@@ -125,6 +125,14 @@ export default function PublicationsIP({ language }: Props) {
                               src={item.evidenceImage}
                               alt={language === "ko" && "titleKo" in item && item.titleKo ? item.titleKo : item.title}
                               language={language}
+                              secondaryImage={
+                                "technologyTransferImage" in item && item.technologyTransferImage
+                                  ? {
+                                      src: item.technologyTransferImage,
+                                      alt: language === "ko" ? "흰색 마스킹 처리된 CCTV 특허 기술이전 계약서" : "Masked CCTV patent technology transfer agreement",
+                                    }
+                                  : undefined
+                              }
                             />
                           ) : null}
                         </article>

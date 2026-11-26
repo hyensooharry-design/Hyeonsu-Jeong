@@ -224,6 +224,7 @@ export const publications = [
     category: { en: "Patent", ko: "특허" },
     title: "Method for Searching Optimal CCTV Camera Installation Locations for Construction Site Monitoring",
     evidenceImage: "/images/EVIDENCE/patent-cctv-10-2026-0073586.webp",
+    technologyTransferImage: "/images/EVIDENCE/patent-transfer-agreement-masked-2026-11-09.png",
     meta: {
       en: "Patent Filed · Application No. 10-2026-0073586 · First Inventor / Primary Contributor",
       ko: "특허 출원 · 출원번호 10-2026-0073586 · 제1발명자",
